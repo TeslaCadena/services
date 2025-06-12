@@ -1,743 +1,775 @@
-    body {
-        font-family: 'Poppins', sans-serif;
-        background-color: #f8f9fa;
-    }
-    
-    .service-card {
-        transition: all 0.3s ease;
-    }
-    
-    .service-card:hover {
-        transform: translateY(-5px);
-        box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
-    }
-    
-    .service-icon {
-        transition: all 0.3s ease;
-    }
-    
-    .service-card:hover .service-icon {
-        transform: scale(1.1);
-    }
-    
-    .tab-content {
-        display: none;
-    }
-    
-    .tab-content.active {
-        display: block;
-        animation: fadeIn 0.5s ease-in-out;
-    }
-    
-    @keyframes fadeIn {
-        from { opacity: 0; transform: translateY(10px); }
-        to { opacity: 1; transform: translateY(0); }
-    }
-    
-    .tab-button {
-        position: relative;
-    }
-    
-    .tab-button.active::after {
-        content: '';
-        position: absolute;
-        bottom: -2px;
-        left: 0;
-        width: 100%;
-        height: 2px;
-        background-color: #4f46e5;
-    }
-</style>
-<!-- Hero Section -->
-<section class="bg-gradient-to-r from-indigo-600 to-purple-600 text-white py-20">
-    <div class="container mx-auto px-4 md:px-8">
-        <div class="max-w-3xl mx-auto text-center">
-            <h1 class="text-4xl md:text-5xl font-bold mb-6">Services That Drive Results</h1>
-            <p class="text-xl opacity-90 mb-8">I help brands tell their stories, connect with audiences, and achieve their business goals through strategic communication.</p>
-            <a href="#contact" class="bg-white text-indigo-600 hover:bg-gray-100 transition px-8 py-3 rounded-full font-medium inline-block">Get in Touch</a>
-        </div>
-    </div>
-</section>
-
-<!-- Services Overview -->
-<section class="py-16 bg-white">
-    <div class="container mx-auto px-4 md:px-8">
-        <div class="text-center mb-16">
-            <h2 class="text-3xl font-bold mb-4">How I Can Help You</h2>
-            <p class="text-gray-600 max-w-2xl mx-auto">I offer comprehensive communication services to help your brand stand out, connect with your audience, and drive meaningful results.</p>
-        </div>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Services | Your Portfolio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
         
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            <!-- Service 1 -->
-            <div class="service-card bg-gray-50 rounded-xl p-8 border border-gray-100">
-                <div class="service-icon bg-indigo-100 text-indigo-600 w-16 h-16 rounded-full flex items-center justify-center mb-6">
-                    <i class="fas fa-pen-fancy text-2xl"></i>
-                </div>
-                <h3 class="text-xl font-bold mb-3">Content Strategy & Copywriting</h3>
-                <p class="text-gray-600 mb-4">I help brands find their voice and tell their story through compelling web copy, email campaigns, scripts, and blog articles.</p>
-                <a href="#content-strategy" class="text-indigo-600 font-medium hover:text-indigo-700 transition flex items-center">
-                    Learn more
-                    <i class="fas fa-arrow-right ml-2 text-sm"></i>
-                </a>
-            </div>
-            
-            <!-- Service 2 -->
-            <div class="service-card bg-gray-50 rounded-xl p-8 border border-gray-100">
-                <div class="service-icon bg-purple-100 text-purple-600 w-16 h-16 rounded-full flex items-center justify-center mb-6">
-                    <i class="fas fa-video text-2xl"></i>
-                </div>
-                <h3 class="text-xl font-bold mb-3">Video Concepting & Production</h3>
-                <p class="text-gray-600 mb-4">From unscripted interviews to animated explainers, I bring stories to life through video—guiding the entire production process.</p>
-                <a href="#video-production" class="text-indigo-600 font-medium hover:text-indigo-700 transition flex items-center">
-                    Learn more
-                    <i class="fas fa-arrow-right ml-2 text-sm"></i>
-                </a>
-            </div>
-            
-            <!-- Service 3 -->
-            <div class="service-card bg-gray-50 rounded-xl p-8 border border-gray-100">
-                <div class="service-icon bg-blue-100 text-blue-600 w-16 h-16 rounded-full flex items-center justify-center mb-6">
-                    <i class="fas fa-bullhorn text-2xl"></i>
-                </div>
-                <h3 class="text-xl font-bold mb-3">Brand Messaging & Positioning</h3>
-                <p class="text-gray-600 mb-4">I craft messaging frameworks that align with your goals and resonate with your audience, whether refreshing or launching.</p>
-                <a href="#brand-messaging" class="text-indigo-600 font-medium hover:text-indigo-700 transition flex items-center">
-                    Learn more
-                    <i class="fas fa-arrow-right ml-2 text-sm"></i>
-                </a>
-            </div>
-            
-            <!-- Service 4 -->
-            <div class="service-card bg-gray-50 rounded-xl p-8 border border-gray-100">
-                <div class="service-icon bg-pink-100 text-pink-600 w-16 h-16 rounded-full flex items-center justify-center mb-6">
-                    <i class="fas fa-calendar-check text-2xl"></i>
-                </div>
-                <h3 class="text-xl font-bold mb-3">Event Marketing & Coordination</h3>
-                <p class="text-gray-600 mb-4">I design experiences that build community and elevate your brand, handling promotion, logistics, and storytelling.</p>
-                <a href="#event-marketing" class="text-indigo-600 font-medium hover:text-indigo-700 transition flex items-center">
-                    Learn more
-                    <i class="fas fa-arrow-right ml-2 text-sm"></i>
-                </a>
-            </div>
-            
-            <!-- Service 5 -->
-            <div class="service-card bg-gray-50 rounded-xl p-8 border border-gray-100">
-                <div class="service-icon bg-green-100 text-green-600 w-16 h-16 rounded-full flex items-center justify-center mb-6">
-                    <i class="fas fa-chart-line text-2xl"></i>
-                </div>
-                <h3 class="text-xl font-bold mb-3">Campaign Planning & Execution</h3>
-                <p class="text-gray-600 mb-4">I develop and manage multi-channel campaigns that deliver results across email, landing pages, social media, and more.</p>
-                <a href="#campaign-planning" class="text-indigo-600 font-medium hover:text-indigo-700 transition flex items-center">
-                    Learn more
-                    <i class="fas fa-arrow-right ml-2 text-sm"></i>
-                </a>
-            </div>
-            
-            <!-- Service 6 / CTA -->
-            <div class="service-card bg-gradient-to-br from-indigo-600 to-purple-600 rounded-xl p-8 text-white">
-                <div class="service-icon bg-white bg-opacity-20 w-16 h-16 rounded-full flex items-center justify-center mb-6">
-                    <i class="fas fa-comments text-2xl"></i>
-                </div>
-                <h3 class="text-xl font-bold mb-3">Custom Solutions</h3>
-                <p class="text-white text-opacity-90 mb-4">Need something specific? Let's discuss how I can tailor my services to meet your unique communication needs.</p>
-                <a href="#contact" class="text-white font-medium hover:text-gray-100 transition flex items-center">
-                    Get in touch
-                    <i class="fas fa-arrow-right ml-2 text-sm"></i>
-                </a>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- Detailed Service Tabs -->
-<section class="py-16 bg-gray-50" id="service-details">
-    <div class="container mx-auto px-4 md:px-8">
-        <div class="text-center mb-12">
-            <h2 class="text-3xl font-bold mb-4">Service Details</h2>
-            <p class="text-gray-600 max-w-2xl mx-auto">Explore each service in detail to understand my approach and how I can help you achieve your goals.</p>
-        </div>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #f8f9fa;
+        }
         
-        <!-- Tab Navigation -->
-        <div class="flex flex-wrap justify-center mb-8 border-b border-gray-200">
-            <button class="tab-button active px-6 py-3 text-gray-700 hover:text-indigo-600 focus:outline-none" data-tab="content-strategy">
-                Content Strategy
-            </button>
-            <button class="tab-button px-6 py-3 text-gray-700 hover:text-indigo-600 focus:outline-none" data-tab="video-production">
-                Video Production
-            </button>
-            <button class="tab-button px-6 py-3 text-gray-700 hover:text-indigo-600 focus:outline-none" data-tab="brand-messaging">
-                Brand Messaging
-            </button>
-            <button class="tab-button px-6 py-3 text-gray-700 hover:text-indigo-600 focus:outline-none" data-tab="event-marketing">
-                Event Marketing
-            </button>
-            <button class="tab-button px-6 py-3 text-gray-700 hover:text-indigo-600 focus:outline-none" data-tab="campaign-planning">
-                Campaign Planning
+        .service-card {
+            transition: all 0.3s ease;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+        
+        .service-icon {
+            transition: all 0.3s ease;
+        }
+        
+        .service-card:hover .service-icon {
+            transform: scale(1.1);
+        }
+        
+        .tab-content {
+            display: none;
+        }
+        
+        .tab-content.active {
+            display: block;
+            animation: fadeIn 0.5s ease-in-out;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .tab-button {
+            position: relative;
+        }
+        
+        .tab-button.active::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background-color: #4f46e5;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="bg-white shadow-sm py-4">
+        <div class="container mx-auto px-4 md:px-8 flex justify-between items-center">
+            <a href="#" class="text-2xl font-bold text-indigo-600">Your Name</a>
+            <div class="hidden md:flex space-x-8">
+                <a href="#" class="text-gray-600 hover:text-indigo-600 transition">Home</a>
+                <a href="#" class="text-indigo-600 font-medium">Services</a>
+                <a href="#" class="text-gray-600 hover:text-indigo-600 transition">Portfolio</a>
+                <a href="#" class="text-gray-600 hover:text-indigo-600 transition">About</a>
+                <a href="#" class="text-gray-600 hover:text-indigo-600 transition">Contact</a>
+            </div>
+            <button class="md:hidden text-gray-600 focus:outline-none">
+                <i class="fas fa-bars text-xl"></i>
             </button>
         </div>
-        
-        <!-- Tab Content -->
-        <div class="tab-content-container">
-            <!-- Content Strategy Tab -->
-            <div id="content-strategy" class="tab-content active">
-                <div class="bg-white rounded-xl shadow-sm overflow-hidden">
-                    <div class="md:flex">
-                        <div class="md:w-1/2 bg-indigo-600 text-white p-10 flex items-center">
-                            <div>
-                                <h3 class="text-2xl font-bold mb-4">Content Strategy & Copywriting</h3>
-                                <p class="mb-6">I help brands find their voice and tell their story. From web copy and email campaigns to scripts and blog articles, I create content that connects and converts.</p>
-                                <ul class="space-y-3">
-                                    <li class="flex items-start">
-                                        <i class="fas fa-check-circle mt-1 mr-3"></i>
-                                        <span>Website copy that captures your brand voice</span>
-                                    </li>
-                                    <li class="flex items-start">
-                                        <i class="fas fa-check-circle mt-1 mr-3"></i>
-                                        <span>Email campaigns with high open and click rates</span>
-                                    </li>
-                                    <li class="flex items-start">
-                                        <i class="fas fa-check-circle mt-1 mr-3"></i>
-                                        <span>Blog content strategy and article creation</span>
-                                    </li>
-                                    <li class="flex items-start">
-                                        <i class="fas fa-check-circle mt-1 mr-3"></i>
-                                        <span>Script writing for videos and presentations</span>
-                                    </li>
-                                    <li class="flex items-start">
-                                        <i class="fas fa-check-circle mt-1 mr-3"></i>
-                                        <span>SEO-optimized content that ranks</span>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="md:w-1/2 p-10">
-                            <h4 class="text-xl font-semibold mb-4">My Approach</h4>
-                            <p class="text-gray-600 mb-6">I begin by understanding your brand, audience, and goals. Then I develop a content strategy that aligns with your business objectives and resonates with your target market.</p>
-                            
-                            <div class="space-y-4 mb-8">
-                                <div class="bg-gray-50 p-4 rounded-lg">
-                                    <h5 class="font-medium mb-2">Research & Strategy</h5>
-                                    <p class="text-gray-600 text-sm">Audience analysis, competitor research, and content planning</p>
-                                </div>
-                                <div class="bg-gray-50 p-4 rounded-lg">
-                                    <h5 class="font-medium mb-2">Content Creation</h5>
-                                    <p class="text-gray-600 text-sm">Writing, editing, and optimizing content for your channels</p>
-                                </div>
-                                <div class="bg-gray-50 p-4 rounded-lg">
-                                    <h5 class="font-medium mb-2">Measurement & Refinement</h5>
-                                    <p class="text-gray-600 text-sm">Analyzing performance and iterating for better results</p>
-                                </div>
-                            </div>
-                            
-                            <a href="#contact" class="bg-indigo-600 hover:bg-indigo-700 transition text-white px-6 py-3 rounded-lg inline-block font-medium">Discuss Your Content Needs</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- Video Production Tab -->
-            <div id="video-production" class="tab-content">
-                <div class="bg-white rounded-xl shadow-sm overflow-hidden">
-                    <div class="md:flex">
-                        <div class="md:w-1/2 bg-purple-600 text-white p-10 flex items-center">
-                            <div>
-                                <h3 class="text-2xl font-bold mb-4">Video Concepting & Production</h3>
-                                <p class="mb-6">Whether it's unscripted interviews, animated explainers, or short-form ads, I bring stories to life through video—guiding everything from scripting to final edit.</p>
-                                <ul class="space-y-3">
-                                    <li class="flex items-start">
-                                        <i class="fas fa-check-circle mt-1 mr-3"></i>
-                                        <span>Brand videos that showcase your values</span>
-                                    </li>
-                                    <li class="flex items-start">
-                                        <i class="fas fa-check-circle mt-1 mr-3"></i>
-                                        <span>Product demos and tutorials</span>
-                                    </li>
-                                    <li class="flex items-start">
-                                        <i class="fas fa-check-circle mt-1 mr-3"></i>
-                                        <span>Animated explainer videos</span>
-                                    </li>
-                                    <li class="flex items-start">
-                                        <i class="fas fa-check-circle mt-1 mr-3"></i>
-                                        <span>Social media video content</span>
-                                    </li>
-                                    <li class="flex items-start">
-                                        <i class="fas fa-check-circle mt-1 mr-3"></i>
-                                        <span>Interview and testimonial videos</span>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="md:w-1/2 p-10">
-                            <h4 class="text-xl font-semibold mb-4">My Approach</h4>
-                            <p class="text-gray-600 mb-6">I take a strategic approach to video production, ensuring that every piece of content serves your business goals while engaging your audience effectively.</p>
-                            
-                            <div class="space-y-4 mb-8">
-                                <div class="bg-gray-50 p-4 rounded-lg">
-                                    <h5 class="font-medium mb-2">Concept Development</h5>
-                                    <p class="text-gray-600 text-sm">Creating compelling video concepts aligned with your brand</p>
-                                </div>
-                                <div class="bg-gray-50 p-4 rounded-lg">
-                                    <h5 class="font-medium mb-2">Production Management</h5>
-                                    <p class="text-gray-600 text-sm">Coordinating filming, animation, and all production elements</p>
-                                </div>
-                                <div class="bg-gray-50 p-4 rounded-lg">
-                                    <h5 class="font-medium mb-2">Post-Production</h5>
-                                    <p class="text-gray-600 text-sm">Editing, sound design, and finalizing your videos</p>
-                                </div>
-                            </div>
-                            
-                            <a href="#contact" class="bg-purple-600 hover:bg-purple-700 transition text-white px-6 py-3 rounded-lg inline-block font-medium">Discuss Your Video Project</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- Brand Messaging Tab -->
-            <div id="brand-messaging" class="tab-content">
-                <div class="bg-white rounded-xl shadow-sm overflow-hidden">
-                    <div class="md:flex">
-                        <div class="md:w-1/2 bg-blue-600 text-white p-10 flex items-center">
-                            <div>
-                                <h3 class="text-2xl font-bold mb-4">Brand Messaging & Positioning</h3>
-                                <p class="mb-6">Need to refresh your brand or launch a new initiative? I craft messaging frameworks that align with your goals and resonate with your audience.</p>
-                                <ul class="space-y-3">
-                                    <li class="flex items-start">
-                                        <i class="fas fa-check-circle mt-1 mr-3"></i>
-                                        <span>Brand voice and tone development</span>
-                                    </li>
-                                    <li class="flex items-start">
-                                        <i class="fas fa-check-circle mt-1 mr-3"></i>
-                                        <span>Messaging frameworks and guidelines</span>
-                                    </li>
-                                    <li class="flex items-start">
-                                        <i class="fas fa-check-circle mt-1 mr-3"></i>
-                                        <span>Value proposition refinement</span>
-                                    </li>
-                                    <li class="flex items-start">
-                                        <i class="fas fa-check-circle mt-1 mr-3"></i>
-                                        <span>Brand story development</span>
-                                    </li>
-                                    <li class="flex items-start">
-                                        <i class="fas fa-check-circle mt-1 mr-3"></i>
-                                        <span>Competitive positioning strategy</span>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="md:w-1/2 p-10">
-                            <h4 class="text-xl font-semibold mb-4">My Approach</h4>
-                            <p class="text-gray-600 mb-6">I help you articulate what makes your brand unique and develop messaging that connects with your target audience on a deeper level.</p>
-                            
-                            <div class="space-y-4 mb-8">
-                                <div class="bg-gray-50 p-4 rounded-lg">
-                                    <h5 class="font-medium mb-2">Brand Discovery</h5>
-                                    <p class="text-gray-600 text-sm">Uncovering your unique value and market position</p>
-                                </div>
-                                <div class="bg-gray-50 p-4 rounded-lg">
-                                    <h5 class="font-medium mb-2">Messaging Development</h5>
-                                    <p class="text-gray-600 text-sm">Creating key messages for different audiences and channels</p>
-                                </div>
-                                <div class="bg-gray-50 p-4 rounded-lg">
-                                    <h5 class="font-medium mb-2">Implementation Support</h5>
-                                    <p class="text-gray-600 text-sm">Helping your team apply the messaging consistently</p>
-                                </div>
-                            </div>
-                            
-                            <a href="#contact" class="bg-blue-600 hover:bg-blue-700 transition text-white px-6 py-3 rounded-lg inline-block font-medium">Discuss Your Brand Messaging</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- Event Marketing Tab -->
-            <div id="event-marketing" class="tab-content">
-                <div class="bg-white rounded-xl shadow-sm overflow-hidden">
-                    <div class="md:flex">
-                        <div class="md:w-1/2 bg-pink-600 text-white p-10 flex items-center">
-                            <div>
-                                <h3 class="text-2xl font-bold mb-4">Event Marketing & Coordination</h3>
-                                <p class="mb-6">From conferences to virtual panels, I design experiences that build community and elevate your brand. I handle promotion, logistics, and storytelling.</p>
-                                <ul class="space-y-3">
-                                    <li class="flex items-start">
-                                        <i class="fas fa-check-circle mt-1 mr-3"></i>
-                                        <span>In-person and virtual event planning</span>
-                                    </li>
-                                    <li class="flex items-start">
-                                        <i class="fas fa-check-circle mt-1 mr-3"></i>
-                                        <span>Event promotion and audience building</span>
-                                    </li>
-                                    <li class="flex items-start">
-                                        <i class="fas fa-check-circle mt-1 mr-3"></i>
-                                        <span>Speaker coordination and content development</span>
-                                    </li>
-                                    <li class="flex items-start">
-                                        <i class="fas fa-check-circle mt-1 mr-3"></i>
-                                        <span>Event branding and materials</span>
-                                    </li>
-                                    <li class="flex items-start">
-                                        <i class="fas fa-check-circle mt-1 mr-3"></i>
-                                        <span>Post-event engagement and follow-up</span>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="md:w-1/2 p-10">
-                            <h4 class="text-xl font-semibold mb-4">My Approach</h4>
-                            <p class="text-gray-600 mb-6">I create events that deliver meaningful experiences for attendees while achieving your business objectives and strengthening your brand.</p>
-                            
-                            <div class="space-y-4 mb-8">
-                                <div class="bg-gray-50 p-4 rounded-lg">
-                                    <h5 class="font-medium mb-2">Event Strategy</h5>
-                                    <p class="text-gray-600 text-sm">Defining goals, audience, and format for maximum impact</p>
-                                </div>
-                                <div class="bg-gray-50 p-4 rounded-lg">
-                                    <h5 class="font-medium mb-2">Execution & Management</h5>
-                                    <p class="text-gray-600 text-sm">Handling logistics, coordination, and day-of management</p>
-                                </div>
-                                <div class="bg-gray-50 p-4 rounded-lg">
-                                    <h5 class="font-medium mb-2">Promotion & Follow-up</h5>
-                                    <p class="text-gray-600 text-sm">Marketing your event and nurturing leads afterward</p>
-                                </div>
-                            </div>
-                            
-                            <a href="#contact" class="bg-pink-600 hover:bg-pink-700 transition text-white px-6 py-3 rounded-lg inline-block font-medium">Plan Your Next Event</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- Campaign Planning Tab -->
-            <div id="campaign-planning" class="tab-content">
-                <div class="bg-white rounded-xl shadow-sm overflow-hidden">
-                    <div class="md:flex">
-                        <div class="md:w-1/2 bg-green-600 text-white p-10 flex items-center">
-                            <div>
-                                <h3 class="text-2xl font-bold mb-4">Campaign Planning & Execution</h3>
-                                <p class="mb-6">I develop and manage multi-channel campaigns that deliver results. Think: email series, landing pages, organic social, paid content, and more.</p>
-                                <ul class="space-y-3">
-                                    <li class="flex items-start">
-                                        <i class="fas fa-check-circle mt-1 mr-3"></i>
-                                        <span>Integrated marketing campaigns</span>
-                                    </li>
-                                    <li class="flex items-start">
-                                        <i class="fas fa-check-circle mt-1 mr-3"></i>
-                                        <span>Product and service launches</span>
-                                    </li>
-                                    <li class="flex items-start">
-                                        <i class="fas fa-check-circle mt-1 mr-3"></i>
-                                        <span>Lead generation campaigns</span>
-                                    </li>
-                                    <li class="flex items-start">
-                                        <i class="fas fa-check-circle mt-1 mr-3"></i>
-                                        <span>Content marketing programs</span>
-                                    </li>
-                                    <li class="flex items-start">
-                                        <i class="fas fa-check-circle mt-1 mr-3"></i>
-                                        <span>Performance tracking and optimization</span>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="md:w-1/2 p-10">
-                            <h4 class="text-xl font-semibold mb-4">My Approach</h4>
-                            <p class="text-gray-600 mb-6">I create data-driven campaigns that connect with your audience across multiple touchpoints to drive engagement and conversions.</p>
-                            
-                            <div class="space-y-4 mb-8">
-                                <div class="bg-gray-50 p-4 rounded-lg">
-                                    <h5 class="font-medium mb-2">Campaign Strategy</h5>
-                                    <p class="text-gray-600 text-sm">Setting objectives, audience targeting, and channel selection</p>
-                                </div>
-                                <div class="bg-gray-50 p-4 rounded-lg">
-                                    <h5 class="font-medium mb-2">Content Development</h5>
-                                    <p class="text-gray-600 text-sm">Creating compelling assets for each channel and stage</p>
-                                </div>
-                                <div class="bg-gray-50 p-4 rounded-lg">
-                                    <h5 class="font-medium mb-2">Measurement & Optimization</h5>
-                                    <p class="text-gray-600 text-sm">Tracking performance and refining for better results</p>
-                                </div>
-                            </div>
-                            
-                            <a href="#contact" class="bg-green-600 hover:bg-green-700 transition text-white px-6 py-3 rounded-lg inline-block font-medium">Plan Your Campaign</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
+    </nav>
 
-<!-- Process Section -->
-<section class="py-16 bg-white">
-    <div class="container mx-auto px-4 md:px-8">
-        <div class="text-center mb-16">
-            <h2 class="text-3xl font-bold mb-4">My Process</h2>
-            <p class="text-gray-600 max-w-2xl mx-auto">I follow a proven approach to ensure your project is successful from start to finish.</p>
-        </div>
-        
-        <div class="max-w-4xl mx-auto">
-            <div class="relative">
-                <!-- Process Line -->
-                <div class="hidden md:block absolute left-1/2 transform -translate-x-1/2 h-full w-1 bg-indigo-100"></div>
-                
-                <!-- Step 1 -->
-                <div class="relative md:flex items-center mb-12">
-                    <div class="md:w-1/2 md:pr-12 md:text-right mb-6 md:mb-0">
-                        <h3 class="text-xl font-bold mb-2">Discovery</h3>
-                        <p class="text-gray-600">I start by understanding your business, goals, audience, and challenges to ensure our work aligns with your vision.</p>
-                    </div>
-                    <div class="md:absolute md:left-1/2 md:transform md:-translate-x-1/2 bg-indigo-600 text-white rounded-full w-12 h-12 flex items-center justify-center font-bold text-xl shadow-lg z-10">1</div>
-                    <div class="md:w-1/2 md:pl-12"></div>
-                </div>
-                
-                <!-- Step 2 -->
-                <div class="relative md:flex items-center mb-12">
-                    <div class="md:w-1/2 md:pr-12 md:text-right"></div>
-                    <div class="md:absolute md:left-1/2 md:transform md:-translate-x-1/2 bg-indigo-600 text-white rounded-full w-12 h-12 flex items-center justify-center font-bold text-xl shadow-lg z-10">2</div>
-                    <div class="md:w-1/2 md:pl-12">
-                        <h3 class="text-xl font-bold mb-2">Strategy</h3>
-                        <p class="text-gray-600">I develop a tailored approach based on research and insights to achieve your specific objectives.</p>
-                    </div>
-                </div>
-                
-                <!-- Step 3 -->
-                <div class="relative md:flex items-center mb-12">
-                    <div class="md:w-1/2 md:pr-12 md:text-right">
-                        <h3 class="text-xl font-bold mb-2">Creation</h3>
-                        <p class="text-gray-600">I bring the strategy to life through compelling content, designs, and experiences that resonate with your audience.</p>
-                    </div>
-                    <div class="md:absolute md:left-1/2 md:transform md:-translate-x-1/2 bg-indigo-600 text-white rounded-full w-12 h-12 flex items-center justify-center font-bold text-xl shadow-lg z-10">3</div>
-                    <div class="md:w-1/2 md:pl-12"></div>
-                </div>
-                
-                <!-- Step 4 -->
-                <div class="relative md:flex items-center mb-12">
-                    <div class="md:w-1/2 md:pr-12 md:text-right"></div>
-                    <div class="md:absolute md:left-1/2 md:transform md:-translate-x-1/2 bg-indigo-600 text-white rounded-full w-12 h-12 flex items-center justify-center font-bold text-xl shadow-lg z-10">4</div>
-                    <div class="md:w-1/2 md:pl-12">
-                        <h3 class="text-xl font-bold mb-2">Implementation</h3>
-                        <p class="text-gray-600">I execute the plan with attention to detail, ensuring everything is delivered on time and to specification.</p>
-                    </div>
-                </div>
-                
-                <!-- Step 5 -->
-                <div class="relative md:flex items-center">
-                    <div class="md:w-1/2 md:pr-12 md:text-right">
-                        <h3 class="text-xl font-bold mb-2">Measurement & Refinement</h3>
-                        <p class="text-gray-600">I track results, gather feedback, and make data-driven improvements to maximize your return on investment.</p>
-                    </div>
-                    <div class="md:absolute md:left-1/2 md:transform md:-translate-x-1/2 bg-indigo-600 text-white rounded-full w-12 h-12 flex items-center justify-center font-bold text-xl shadow-lg z-10">5</div>
-                    <div class="md:w-1/2 md:pl-12"></div>
-                </div>
+    <!-- Hero Section -->
+    <section class="bg-gradient-to-r from-indigo-600 to-purple-600 text-white py-20">
+        <div class="container mx-auto px-4 md:px-8">
+            <div class="max-w-3xl mx-auto text-center">
+                <h1 class="text-4xl md:text-5xl font-bold mb-6">Services That Drive Results</h1>
+                <p class="text-xl opacity-90 mb-8">I help brands tell their stories, connect with audiences, and achieve their business goals through strategic communication.</p>
+                <a href="#contact" class="bg-white text-indigo-600 hover:bg-gray-100 transition px-8 py-3 rounded-full font-medium inline-block">Get in Touch</a>
             </div>
         </div>
-    </div>
-</section>
+    </section>
 
-<!-- Testimonials -->
-<section class="py-16 bg-gray-50">
-    <div class="container mx-auto px-4 md:px-8">
-        <div class="text-center mb-16">
-            <h2 class="text-3xl font-bold mb-4">Client Testimonials</h2>
-            <p class="text-gray-600 max-w-2xl mx-auto">Here's what clients have to say about working with me.</p>
-        </div>
-        
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            <!-- Testimonial 1 -->
-            <div class="bg-white p-8 rounded-xl shadow-sm border border-gray-100">
-                <div class="text-yellow-400 flex mb-4">
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                </div>
-                <p class="text-gray-600 italic mb-6">"The content strategy completely transformed our approach to marketing. We're seeing higher engagement and better conversion rates across all channels."</p>
-                <div class="flex items-center">
-                    <div class="w-12 h-12 bg-indigo-100 rounded-full flex items-center justify-center text-indigo-600 font-bold text-xl mr-4">JD</div>
-                    <div>
-                        <h4 class="font-semibold">Jane Doe</h4>
-                        <p class="text-gray-500 text-sm">Marketing Director, Tech Company</p>
-                    </div>
-                </div>
+    <!-- Services Overview -->
+    <section class="py-16 bg-white">
+        <div class="container mx-auto px-4 md:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-bold mb-4">How I Can Help You</h2>
+                <p class="text-gray-600 max-w-2xl mx-auto">I offer comprehensive communication services to help your brand stand out, connect with your audience, and drive meaningful results.</p>
             </div>
             
-            <!-- Testimonial 2 -->
-            <div class="bg-white p-8 rounded-xl shadow-sm border border-gray-100">
-                <div class="text-yellow-400 flex mb-4">
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                </div>
-                <p class="text-gray-600 italic mb-6">"Our product launch campaign exceeded all expectations. The messaging was spot-on, and the multi-channel approach helped us reach our target audience effectively."</p>
-                <div class="flex items-center">
-                    <div class="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center text-green-600 font-bold text-xl mr-4">MS</div>
-                    <div>
-                        <h4 class="font-semibold">Michael Smith</h4>
-                        <p class="text-gray-500 text-sm">CEO, Startup</p>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Service 1 -->
+                <div class="service-card bg-gray-50 rounded-xl p-8 border border-gray-100">
+                    <div class="service-icon bg-indigo-100 text-indigo-600 w-16 h-16 rounded-full flex items-center justify-center mb-6">
+                        <i class="fas fa-pen-fancy text-2xl"></i>
                     </div>
+                    <h3 class="text-xl font-bold mb-3">Content Strategy & Copywriting</h3>
+                    <p class="text-gray-600 mb-4">I help brands find their voice and tell their story through compelling web copy, email campaigns, scripts, and blog articles.</p>
+                    <a href="#content-strategy" class="text-indigo-600 font-medium hover:text-indigo-700 transition flex items-center">
+                        Learn more
+                        <i class="fas fa-arrow-right ml-2 text-sm"></i>
+                    </a>
                 </div>
-            </div>
-            
-            <!-- Testimonial 3 -->
-            <div class="bg-white p-8 rounded-xl shadow-sm border border-gray-100">
-                <div class="text-yellow-400 flex mb-4">
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                </div>
-                <p class="text-gray-600 italic mb-6">"The video series created for our brand has become our most effective marketing asset. It perfectly captures our company culture and value proposition."</p>
-                <div class="flex items-center">
-                    <div class="w-12 h-12 bg-purple-100 rounded-full flex items-center justify-center text-purple-600 font-bold text-xl mr-4">SJ</div>
-                    <div>
-                        <h4 class="font-semibold">Sarah Johnson</h4>
-                        <p class="text-gray-500 text-sm">Brand Manager, Retail Brand</p>
+                
+                <!-- Service 2 -->
+                <div class="service-card bg-gray-50 rounded-xl p-8 border border-gray-100">
+                    <div class="service-icon bg-purple-100 text-purple-600 w-16 h-16 rounded-full flex items-center justify-center mb-6">
+                        <i class="fas fa-video text-2xl"></i>
                     </div>
+                    <h3 class="text-xl font-bold mb-3">Video Concepting & Production</h3>
+                    <p class="text-gray-600 mb-4">From unscripted interviews to animated explainers, I bring stories to life through video—guiding the entire production process.</p>
+                    <a href="#video-production" class="text-indigo-600 font-medium hover:text-indigo-700 transition flex items-center">
+                        Learn more
+                        <i class="fas fa-arrow-right ml-2 text-sm"></i>
+                    </a>
+                </div>
+                
+                <!-- Service 3 -->
+                <div class="service-card bg-gray-50 rounded-xl p-8 border border-gray-100">
+                    <div class="service-icon bg-blue-100 text-blue-600 w-16 h-16 rounded-full flex items-center justify-center mb-6">
+                        <i class="fas fa-bullhorn text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Brand Messaging & Positioning</h3>
+                    <p class="text-gray-600 mb-4">I craft messaging frameworks that align with your goals and resonate with your audience, whether refreshing or launching.</p>
+                    <a href="#brand-messaging" class="text-indigo-600 font-medium hover:text-indigo-700 transition flex items-center">
+                        Learn more
+                        <i class="fas fa-arrow-right ml-2 text-sm"></i>
+                    </a>
+                </div>
+                
+                <!-- Service 4 -->
+                <div class="service-card bg-gray-50 rounded-xl p-8 border border-gray-100">
+                    <div class="service-icon bg-pink-100 text-pink-600 w-16 h-16 rounded-full flex items-center justify-center mb-6">
+                        <i class="fas fa-calendar-check text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Event Marketing & Coordination</h3>
+                    <p class="text-gray-600 mb-4">I design experiences that build community and elevate your brand, handling promotion, logistics, and storytelling.</p>
+                    <a href="#event-marketing" class="text-indigo-600 font-medium hover:text-indigo-700 transition flex items-center">
+                        Learn more
+                        <i class="fas fa-arrow-right ml-2 text-sm"></i>
+                    </a>
+                </div>
+                
+                <!-- Service 5 -->
+                <div class="service-card bg-gray-50 rounded-xl p-8 border border-gray-100">
+                    <div class="service-icon bg-green-100 text-green-600 w-16 h-16 rounded-full flex items-center justify-center mb-6">
+                        <i class="fas fa-chart-line text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Campaign Planning & Execution</h3>
+                    <p class="text-gray-600 mb-4">I develop and manage multi-channel campaigns that deliver results across email, landing pages, social media, and more.</p>
+                    <a href="#campaign-planning" class="text-indigo-600 font-medium hover:text-indigo-700 transition flex items-center">
+                        Learn more
+                        <i class="fas fa-arrow-right ml-2 text-sm"></i>
+                    </a>
+                </div>
+                
+                <!-- Service 6 / CTA -->
+                <div class="service-card bg-gradient-to-br from-indigo-600 to-purple-600 rounded-xl p-8 text-white">
+                    <div class="service-icon bg-white bg-opacity-20 w-16 h-16 rounded-full flex items-center justify-center mb-6">
+                        <i class="fas fa-comments text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Custom Solutions</h3>
+                    <p class="text-white text-opacity-90 mb-4">Need something specific? Let's discuss how I can tailor my services to meet your unique communication needs.</p>
+                    <a href="#contact" class="text-white font-medium hover:text-gray-100 transition flex items-center">
+                        Get in touch
+                        <i class="fas fa-arrow-right ml-2 text-sm"></i>
+                    </a>
                 </div>
             </div>
         </div>
-    </div>
-</section>
+    </section>
 
-<!-- Contact Section -->
-<section id="contact" class="py-16 bg-gradient-to-r from-indigo-600 to-purple-600 text-white">
-    <div class="container mx-auto px-4 md:px-8">
-        <div class="max-w-4xl mx-auto">
+    <!-- Detailed Service Tabs -->
+    <section class="py-16 bg-gray-50" id="service-details">
+        <div class="container mx-auto px-4 md:px-8">
             <div class="text-center mb-12">
-                <h2 class="text-3xl font-bold mb-4">Let's Work Together</h2>
-                <p class="opacity-90 max-w-2xl mx-auto">Ready to elevate your brand's communication? Get in touch to discuss how I can help you achieve your goals.</p>
+                <h2 class="text-3xl font-bold mb-4">Service Details</h2>
+                <p class="text-gray-600 max-w-2xl mx-auto">Explore each service in detail to understand my approach and how I can help you achieve your goals.</p>
             </div>
             
-            <div class="bg-white rounded-xl shadow-lg p-8 text-gray-800">
-                <form id="contactForm" class="space-y-6">
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                        <div>
-                            <label for="name" class="block text-sm font-medium text-gray-700 mb-1">Name</label>
-                            <input type="text" id="name" name="name" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition" placeholder="Your name">
+            <!-- Tab Navigation -->
+            <div class="flex flex-wrap justify-center mb-8 border-b border-gray-200">
+                <button class="tab-button active px-6 py-3 text-gray-700 hover:text-indigo-600 focus:outline-none" data-tab="content-strategy">
+                    Content Strategy
+                </button>
+                <button class="tab-button px-6 py-3 text-gray-700 hover:text-indigo-600 focus:outline-none" data-tab="video-production">
+                    Video Production
+                </button>
+                <button class="tab-button px-6 py-3 text-gray-700 hover:text-indigo-600 focus:outline-none" data-tab="brand-messaging">
+                    Brand Messaging
+                </button>
+                <button class="tab-button px-6 py-3 text-gray-700 hover:text-indigo-600 focus:outline-none" data-tab="event-marketing">
+                    Event Marketing
+                </button>
+                <button class="tab-button px-6 py-3 text-gray-700 hover:text-indigo-600 focus:outline-none" data-tab="campaign-planning">
+                    Campaign Planning
+                </button>
+            </div>
+            
+            <!-- Tab Content -->
+            <div class="tab-content-container">
+                <!-- Content Strategy Tab -->
+                <div id="content-strategy" class="tab-content active">
+                    <div class="bg-white rounded-xl shadow-sm overflow-hidden">
+                        <div class="md:flex">
+                            <div class="md:w-1/2 bg-indigo-600 text-white p-10 flex items-center">
+                                <div>
+                                    <h3 class="text-2xl font-bold mb-4">Content Strategy & Copywriting</h3>
+                                    <p class="mb-6">I help brands find their voice and tell their story. From web copy and email campaigns to scripts and blog articles, I create content that connects and converts.</p>
+                                    <ul class="space-y-3">
+                                        <li class="flex items-start">
+                                            <i class="fas fa-check-circle mt-1 mr-3"></i>
+                                            <span>Website copy that captures your brand voice</span>
+                                        </li>
+                                        <li class="flex items-start">
+                                            <i class="fas fa-check-circle mt-1 mr-3"></i>
+                                            <span>Email campaigns with high open and click rates</span>
+                                        </li>
+                                        <li class="flex items-start">
+                                            <i class="fas fa-check-circle mt-1 mr-3"></i>
+                                            <span>Blog content strategy and article creation</span>
+                                        </li>
+                                        <li class="flex items-start">
+                                            <i class="fas fa-check-circle mt-1 mr-3"></i>
+                                            <span>Script writing for videos and presentations</span>
+                                        </li>
+                                        <li class="flex items-start">
+                                            <i class="fas fa-check-circle mt-1 mr-3"></i>
+                                            <span>SEO-optimized content that ranks</span>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="md:w-1/2 p-10">
+                                <h4 class="text-xl font-semibold mb-4">My Approach</h4>
+                                <p class="text-gray-600 mb-6">I begin by understanding your brand, audience, and goals. Then I develop a content strategy that aligns with your business objectives and resonates with your target market.</p>
+                                
+                                <div class="space-y-4 mb-8">
+                                    <div class="bg-gray-50 p-4 rounded-lg">
+                                        <h5 class="font-medium mb-2">Research & Strategy</h5>
+                                        <p class="text-gray-600 text-sm">Audience analysis, competitor research, and content planning</p>
+                                    </div>
+                                    <div class="bg-gray-50 p-4 rounded-lg">
+                                        <h5 class="font-medium mb-2">Content Creation</h5>
+                                        <p class="text-gray-600 text-sm">Writing, editing, and optimizing content for your channels</p>
+                                    </div>
+                                    <div class="bg-gray-50 p-4 rounded-lg">
+                                        <h5 class="font-medium mb-2">Measurement & Refinement</h5>
+                                        <p class="text-gray-600 text-sm">Analyzing performance and iterating for better results</p>
+                                    </div>
+                                </div>
+                                
+                                <a href="#contact" class="bg-indigo-600 hover:bg-indigo-700 transition text-white px-6 py-3 rounded-lg inline-block font-medium">Discuss Your Content Needs</a>
+                            </div>
                         </div>
-                        <div>
-                            <label for="email" class="block text-sm font-medium text-gray-700 mb-1">Email</label>
-                            <input type="email" id="email" name="email" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition" placeholder="Your email">
-                        </div>
                     </div>
-                    
-                    <div>
-                        <label for="service" class="block text-sm font-medium text-gray-700 mb-1">Service You're Interested In</label>
-                        <select id="service" name="service" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition">
-                            <option value="">Select a service</option>
-                            <option value="content-strategy">Content Strategy & Copywriting</option>
-                            <option value="video-production">Video Concepting & Production</option>
-                            <option value="brand-messaging">Brand Messaging & Positioning</option>
-                            <option value="event-marketing">Event Marketing & Coordination</option>
-                            <option value="campaign-planning">Campaign Planning & Execution</option>
-                            <option value="other">Other / Not Sure Yet</option>
-                        </select>
-                    </div>
-                    
-                    <div>
-                        <label for="message" class="block text-sm font-medium text-gray-700 mb-1">Message</label>
-                        <textarea id="message" name="message" rows="4" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition" placeholder="Tell me about your project or needs"></textarea>
-                    </div>
-                    
-                    <div class="text-center">
-                        <button type="submit" class="bg-indigo-600 hover:bg-indigo-700 transition text-white px-8 py-3 rounded-lg font-medium">Send Message</button>
-                    </div>
-                </form>
+                </div>
                 
-                <div id="formSuccess" class="hidden mt-6 p-4 bg-green-100 text-green-700 rounded-lg text-center">
-                    Thank you for your message! I'll get back to you soon.
+                <!-- Video Production Tab -->
+                <div id="video-production" class="tab-content">
+                    <div class="bg-white rounded-xl shadow-sm overflow-hidden">
+                        <div class="md:flex">
+                            <div class="md:w-1/2 bg-purple-600 text-white p-10 flex items-center">
+                                <div>
+                                    <h3 class="text-2xl font-bold mb-4">Video Concepting & Production</h3>
+                                    <p class="mb-6">Whether it's unscripted interviews, animated explainers, or short-form ads, I bring stories to life through video—guiding everything from scripting to final edit.</p>
+                                    <ul class="space-y-3">
+                                        <li class="flex items-start">
+                                            <i class="fas fa-check-circle mt-1 mr-3"></i>
+                                            <span>Brand videos that showcase your values</span>
+                                        </li>
+                                        <li class="flex items-start">
+                                            <i class="fas fa-check-circle mt-1 mr-3"></i>
+                                            <span>Product demos and tutorials</span>
+                                        </li>
+                                        <li class="flex items-start">
+                                            <i class="fas fa-check-circle mt-1 mr-3"></i>
+                                            <span>Animated explainer videos</span>
+                                        </li>
+                                        <li class="flex items-start">
+                                            <i class="fas fa-check-circle mt-1 mr-3"></i>
+                                            <span>Social media video content</span>
+                                        </li>
+                                        <li class="flex items-start">
+                                            <i class="fas fa-check-circle mt-1 mr-3"></i>
+                                            <span>Interview and testimonial videos</span>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="md:w-1/2 p-10">
+                                <h4 class="text-xl font-semibold mb-4">My Approach</h4>
+                                <p class="text-gray-600 mb-6">I take a strategic approach to video production, ensuring that every piece of content serves your business goals while engaging your audience effectively.</p>
+                                
+                                <div class="space-y-4 mb-8">
+                                    <div class="bg-gray-50 p-4 rounded-lg">
+                                        <h5 class="font-medium mb-2">Concept Development</h5>
+                                        <p class="text-gray-600 text-sm">Creating compelling video concepts aligned with your brand</p>
+                                    </div>
+                                    <div class="bg-gray-50 p-4 rounded-lg">
+                                        <h5 class="font-medium mb-2">Production Management</h5>
+                                        <p class="text-gray-600 text-sm">Coordinating filming, animation, and all production elements</p>
+                                    </div>
+                                    <div class="bg-gray-50 p-4 rounded-lg">
+                                        <h5 class="font-medium mb-2">Post-Production</h5>
+                                        <p class="text-gray-600 text-sm">Editing, sound design, and finalizing your videos</p>
+                                    </div>
+                                </div>
+                                
+                                <a href="#contact" class="bg-purple-600 hover:bg-purple-700 transition text-white px-6 py-3 rounded-lg inline-block font-medium">Discuss Your Video Project</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Brand Messaging Tab -->
+                <div id="brand-messaging" class="tab-content">
+                    <div class="bg-white rounded-xl shadow-sm overflow-hidden">
+                        <div class="md:flex">
+                            <div class="md:w-1/2 bg-blue-600 text-white p-10 flex items-center">
+                                <div>
+                                    <h3 class="text-2xl font-bold mb-4">Brand Messaging & Positioning</h3>
+                                    <p class="mb-6">Need to refresh your brand or launch a new initiative? I craft messaging frameworks that align with your goals and resonate with your audience.</p>
+                                    <ul class="space-y-3">
+                                        <li class="flex items-start">
+                                            <i class="fas fa-check-circle mt-1 mr-3"></i>
+                                            <span>Brand voice and tone development</span>
+                                        </li>
+                                        <li class="flex items-start">
+                                            <i class="fas fa-check-circle mt-1 mr-3"></i>
+                                            <span>Messaging frameworks and guidelines</span>
+                                        </li>
+                                        <li class="flex items-start">
+                                            <i class="fas fa-check-circle mt-1 mr-3"></i>
+                                            <span>Value proposition refinement</span>
+                                        </li>
+                                        <li class="flex items-start">
+                                            <i class="fas fa-check-circle mt-1 mr-3"></i>
+                                            <span>Brand story development</span>
+                                        </li>
+                                        <li class="flex items-start">
+                                            <i class="fas fa-check-circle mt-1 mr-3"></i>
+                                            <span>Competitive positioning strategy</span>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="md:w-1/2 p-10">
+                                <h4 class="text-xl font-semibold mb-4">My Approach</h4>
+                                <p class="text-gray-600 mb-6">I help you articulate what makes your brand unique and develop messaging that connects with your target audience on a deeper level.</p>
+                                
+                                <div class="space-y-4 mb-8">
+                                    <div class="bg-gray-50 p-4 rounded-lg">
+                                        <h5 class="font-medium mb-2">Brand Discovery</h5>
+                                        <p class="text-gray-600 text-sm">Uncovering your unique value and market position</p>
+                                    </div>
+                                    <div class="bg-gray-50 p-4 rounded-lg">
+                                        <h5 class="font-medium mb-2">Messaging Development</h5>
+                                        <p class="text-gray-600 text-sm">Creating key messages for different audiences and channels</p>
+                                    </div>
+                                    <div class="bg-gray-50 p-4 rounded-lg">
+                                        <h5 class="font-medium mb-2">Implementation Support</h5>
+                                        <p class="text-gray-600 text-sm">Helping your team apply the messaging consistently</p>
+                                    </div>
+                                </div>
+                                
+                                <a href="#contact" class="bg-blue-600 hover:bg-blue-700 transition text-white px-6 py-3 rounded-lg inline-block font-medium">Discuss Your Brand Messaging</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Event Marketing Tab -->
+                <div id="event-marketing" class="tab-content">
+                    <div class="bg-white rounded-xl shadow-sm overflow-hidden">
+                        <div class="md:flex">
+                            <div class="md:w-1/2 bg-pink-600 text-white p-10 flex items-center">
+                                <div>
+                                    <h3 class="text-2xl font-bold mb-4">Event Marketing & Coordination</h3>
+                                    <p class="mb-6">From conferences to virtual panels, I design experiences that build community and elevate your brand. I handle promotion, logistics, and storytelling.</p>
+                                    <ul class="space-y-3">
+                                        <li class="flex items-start">
+                                            <i class="fas fa-check-circle mt-1 mr-3"></i>
+                                            <span>In-person and virtual event planning</span>
+                                        </li>
+                                        <li class="flex items-start">
+                                            <i class="fas fa-check-circle mt-1 mr-3"></i>
+                                            <span>Event promotion and audience building</span>
+                                        </li>
+                                        <li class="flex items-start">
+                                            <i class="fas fa-check-circle mt-1 mr-3"></i>
+                                            <span>Speaker coordination and content development</span>
+                                        </li>
+                                        <li class="flex items-start">
+                                            <i class="fas fa-check-circle mt-1 mr-3"></i>
+                                            <span>Event branding and materials</span>
+                                        </li>
+                                        <li class="flex items-start">
+                                            <i class="fas fa-check-circle mt-1 mr-3"></i>
+                                            <span>Post-event engagement and follow-up</span>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="md:w-1/2 p-10">
+                                <h4 class="text-xl font-semibold mb-4">My Approach</h4>
+                                <p class="text-gray-600 mb-6">I create events that deliver meaningful experiences for attendees while achieving your business objectives and strengthening your brand.</p>
+                                
+                                <div class="space-y-4 mb-8">
+                                    <div class="bg-gray-50 p-4 rounded-lg">
+                                        <h5 class="font-medium mb-2">Event Strategy</h5>
+                                        <p class="text-gray-600 text-sm">Defining goals, audience, and format for maximum impact</p>
+                                    </div>
+                                    <div class="bg-gray-50 p-4 rounded-lg">
+                                        <h5 class="font-medium mb-2">Execution & Management</h5>
+                                        <p class="text-gray-600 text-sm">Handling logistics, coordination, and day-of management</p>
+                                    </div>
+                                    <div class="bg-gray-50 p-4 rounded-lg">
+                                        <h5 class="font-medium mb-2">Promotion & Follow-up</h5>
+                                        <p class="text-gray-600 text-sm">Marketing your event and nurturing leads afterward</p>
+                                    </div>
+                                </div>
+                                
+                                <a href="#contact" class="bg-pink-600 hover:bg-pink-700 transition text-white px-6 py-3 rounded-lg inline-block font-medium">Plan Your Next Event</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Campaign Planning Tab -->
+                <div id="campaign-planning" class="tab-content">
+                    <div class="bg-white rounded-xl shadow-sm overflow-hidden">
+                        <div class="md:flex">
+                            <div class="md:w-1/2 bg-green-600 text-white p-10 flex items-center">
+                                <div>
+                                    <h3 class="text-2xl font-bold mb-4">Campaign Planning & Execution</h3>
+                                    <p class="mb-6">I develop and manage multi-channel campaigns that deliver results. Think: email series, landing pages, organic social, paid content, and more.</p>
+                                    <ul class="space-y-3">
+                                        <li class="flex items-start">
+                                            <i class="fas fa-check-circle mt-1 mr-3"></i>
+                                            <span>Integrated marketing campaigns</span>
+                                        </li>
+                                        <li class="flex items-start">
+                                            <i class="fas fa-check-circle mt-1 mr-3"></i>
+                                            <span>Product and service launches</span>
+                                        </li>
+                                        <li class="flex items-start">
+                                            <i class="fas fa-check-circle mt-1 mr-3"></i>
+                                            <span>Lead generation campaigns</span>
+                                        </li>
+                                        <li class="flex items-start">
+                                            <i class="fas fa-check-circle mt-1 mr-3"></i>
+                                            <span>Content marketing programs</span>
+                                        </li>
+                                        <li class="flex items-start">
+                                            <i class="fas fa-check-circle mt-1 mr-3"></i>
+                                            <span>Performance tracking and optimization</span>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="md:w-1/2 p-10">
+                                <h4 class="text-xl font-semibold mb-4">My Approach</h4>
+                                <p class="text-gray-600 mb-6">I create data-driven campaigns that connect with your audience across multiple touchpoints to drive engagement and conversions.</p>
+                                
+                                <div class="space-y-4 mb-8">
+                                    <div class="bg-gray-50 p-4 rounded-lg">
+                                        <h5 class="font-medium mb-2">Campaign Strategy</h5>
+                                        <p class="text-gray-600 text-sm">Setting objectives, audience targeting, and channel selection</p>
+                                    </div>
+                                    <div class="bg-gray-50 p-4 rounded-lg">
+                                        <h5 class="font-medium mb-2">Content Development</h5>
+                                        <p class="text-gray-600 text-sm">Creating compelling assets for each channel and stage</p>
+                                    </div>
+                                    <div class="bg-gray-50 p-4 rounded-lg">
+                                        <h5 class="font-medium mb-2">Measurement & Optimization</h5>
+                                        <p class="text-gray-600 text-sm">Tracking performance and refining for better results</p>
+                                    </div>
+                                </div>
+                                
+                                <a href="#contact" class="bg-green-600 hover:bg-green-700 transition text-white px-6 py-3 rounded-lg inline-block font-medium">Plan Your Campaign</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Process Section -->
+    <section class="py-16 bg-white">
+        <div class="container mx-auto px-4 md:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-bold mb-4">My Process</h2>
+                <p class="text-gray-600 max-w-2xl mx-auto">I follow a proven approach to ensure your project is successful from start to finish.</p>
+            </div>
+            
+            <div class="max-w-4xl mx-auto">
+                <div class="relative">
+                    <!-- Process Line -->
+                    <div class="hidden md:block absolute left-1/2 transform -translate-x-1/2 h-full w-1 bg-indigo-100"></div>
+                    
+                    <!-- Step 1 -->
+                    <div class="relative md:flex items-center mb-12">
+                        <div class="md:w-1/2 md:pr-12 md:text-right mb-6 md:mb-0">
+                            <h3 class="text-xl font-bold mb-2">Discovery</h3>
+                            <p class="text-gray-600">I start by understanding your business, goals, audience, and challenges to ensure our work aligns with your vision.</p>
+                        </div>
+                        <div class="md:absolute md:left-1/2 md:transform md:-translate-x-1/2 bg-indigo-600 text-white rounded-full w-12 h-12 flex items-center justify-center font-bold text-xl shadow-lg z-10">1</div>
+                        <div class="md:w-1/2 md:pl-12"></div>
+                    </div>
+                    
+                    <!-- Step 2 -->
+                    <div class="relative md:flex items-center mb-12">
+                        <div class="md:w-1/2 md:pr-12 md:text-right"></div>
+                        <div class="md:absolute md:left-1/2 md:transform md:-translate-x-1/2 bg-indigo-600 text-white rounded-full w-12 h-12 flex items-center justify-center font-bold text-xl shadow-lg z-10">2</div>
+                        <div class="md:w-1/2 md:pl-12">
+                            <h3 class="text-xl font-bold mb-2">Strategy</h3>
+                            <p class="text-gray-600">I develop a tailored approach based on research and insights to achieve your specific objectives.</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Step 3 -->
+                    <div class="relative md:flex items-center mb-12">
+                        <div class="md:w-1/2 md:pr-12 md:text-right">
+                            <h3 class="text-xl font-bold mb-2">Creation</h3>
+                            <p class="text-gray-600">I bring the strategy to life through compelling content, designs, and experiences that resonate with your audience.</p>
+                        </div>
+                        <div class="md:absolute md:left-1/2 md:transform md:-translate-x-1/2 bg-indigo-600 text-white rounded-full w-12 h-12 flex items-center justify-center font-bold text-xl shadow-lg z-10">3</div>
+                        <div class="md:w-1/2 md:pl-12"></div>
+                    </div>
+                    
+                    <!-- Step 4 -->
+                    <div class="relative md:flex items-center mb-12">
+                        <div class="md:w-1/2 md:pr-12 md:text-right"></div>
+                        <div class="md:absolute md:left-1/2 md:transform md:-translate-x-1/2 bg-indigo-600 text-white rounded-full w-12 h-12 flex items-center justify-center font-bold text-xl shadow-lg z-10">4</div>
+                        <div class="md:w-1/2 md:pl-12">
+                            <h3 class="text-xl font-bold mb-2">Implementation</h3>
+                            <p class="text-gray-600">I execute the plan with attention to detail, ensuring everything is delivered on time and to specification.</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Step 5 -->
+                    <div class="relative md:flex items-center">
+                        <div class="md:w-1/2 md:pr-12 md:text-right">
+                            <h3 class="text-xl font-bold mb-2">Measurement & Refinement</h3>
+                            <p class="text-gray-600">I track results, gather feedback, and make data-driven improvements to maximize your return on investment.</p>
+                        </div>
+                        <div class="md:absolute md:left-1/2 md:transform md:-translate-x-1/2 bg-indigo-600 text-white rounded-full w-12 h-12 flex items-center justify-center font-bold text-xl shadow-lg z-10">5</div>
+                        <div class="md:w-1/2 md:pl-12"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="py-16 bg-gray-50">
+        <div class="container mx-auto px-4 md:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-bold mb-4">Client Testimonials</h2>
+                <p class="text-gray-600 max-w-2xl mx-auto">Here's what clients have to say about working with me.</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Testimonial 1 -->
+                <div class="bg-white p-8 rounded-xl shadow-sm border border-gray-100">
+                    <div class="text-yellow-400 flex mb-4">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p class="text-gray-600 italic mb-6">"The content strategy completely transformed our approach to marketing. We're seeing higher engagement and better conversion rates across all channels."</p>
+                    <div class="flex items-center">
+                        <div class="w-12 h-12 bg-indigo-100 rounded-full flex items-center justify-center text-indigo-600 font-bold text-xl mr-4">JD</div>
+                        <div>
+                            <h4 class="font-semibold">Jane Doe</h4>
+                            <p class="text-gray-500 text-sm">Marketing Director, Tech Company</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Testimonial 2 -->
+                <div class="bg-white p-8 rounded-xl shadow-sm border border-gray-100">
+                    <div class="text-yellow-400 flex mb-4">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p class="text-gray-600 italic mb-6">"Our product launch campaign exceeded all expectations. The messaging was spot-on, and the multi-channel approach helped us reach our target audience effectively."</p>
+                    <div class="flex items-center">
+                        <div class="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center text-green-600 font-bold text-xl mr-4">MS</div>
+                        <div>
+                            <h4 class="font-semibold">Michael Smith</h4>
+                            <p class="text-gray-500 text-sm">CEO, Startup</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Testimonial 3 -->
+                <div class="bg-white p-8 rounded-xl shadow-sm border border-gray-100">
+                    <div class="text-yellow-400 flex mb-4">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p class="text-gray-600 italic mb-6">"The video series created for our brand has become our most effective marketing asset. It perfectly captures our company culture and value proposition."</p>
+                    <div class="flex items-center">
+                        <div class="w-12 h-12 bg-purple-100 rounded-full flex items-center justify-center text-purple-600 font-bold text-xl mr-4">SJ</div>
+                        <div>
+                            <h4 class="font-semibold">Sarah Johnson</h4>
+                            <p class="text-gray-500 text-sm">Brand Manager, Retail Brand</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-16 bg-gradient-to-r from-indigo-600 to-purple-600 text-white">
+        <div class="container mx-auto px-4 md:px-8">
+            <div class="max-w-4xl mx-auto">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl font-bold mb-4">Let's Work Together</h2>
+                    <p class="opacity-90 max-w-2xl mx-auto">Ready to elevate your brand's communication? Get in touch to discuss how I can help you achieve your goals.</p>
+                </div>
+                
+                <div class="bg-white rounded-xl shadow-lg p-8 text-gray-800">
+                    <form id="contactForm" class="space-y-6">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div>
+                                <label for="name" class="block text-sm font-medium text-gray-700 mb-1">Name</label>
+                                <input type="text" id="name" name="name" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition" placeholder="Your name">
+                            </div>
+                            <div>
+                                <label for="email" class="block text-sm font-medium text-gray-700 mb-1">Email</label>
+                                <input type="email" id="email" name="email" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition" placeholder="Your email">
+                            </div>
+                        </div>
+                        
+                        <div>
+                            <label for="service" class="block text-sm font-medium text-gray-700 mb-1">Service You're Interested In</label>
+                            <select id="service" name="service" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition">
+                                <option value="">Select a service</option>
+                                <option value="content-strategy">Content Strategy & Copywriting</option>
+                                <option value="video-production">Video Concepting & Production</option>
+                                <option value="brand-messaging">Brand Messaging & Positioning</option>
+                                <option value="event-marketing">Event Marketing & Coordination</option>
+                                <option value="campaign-planning">Campaign Planning & Execution</option>
+                                <option value="other">Other / Not Sure Yet</option>
+                            </select>
+                        </div>
+                        
+                        <div>
+                            <label for="message" class="block text-sm font-medium text-gray-700 mb-1">Message</label>
+                            <textarea id="message" name="message" rows="4" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition" placeholder="Tell me about your project or needs"></textarea>
+                        </div>
+                        
+                        <div class="text-center">
+                            <button type="submit" class="bg-indigo-600 hover:bg-indigo-700 transition text-white px-8 py-3 rounded-lg font-medium">Send Message</button>
+                        </div>
+                    </form>
+                    
+                    <div id="formSuccess" class="hidden mt-6 p-4 bg-green-100 text-green-700 rounded-lg text-center">
+                        Thank you for your message! I'll get back to you soon.
+                    </div>
+                </div>
+                
+                <div class="mt-12 text-center">
+                    <p class="mb-4 opacity-90">Prefer to connect another way?</p>
+                    <div class="flex justify-center space-x-6">
+                        <a href="#" class="hover:text-gray-200 transition">
+                            <i class="fab fa-linkedin text-2xl"></i>
+                        </a>
+                        <a href="#" class="hover:text-gray-200 transition">
+                            <i class="fab fa-twitter text-2xl"></i>
+                        </a>
+                        <a href="#" class="hover:text-gray-200 transition">
+                            <i class="fas fa-envelope text-2xl"></i>
+                        </a>
+                        <a href="#" class="hover:text-gray-200 transition">
+                            <i class="fab fa-instagram text-2xl"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12">
+        <div class="container mx-auto px-4 md:px-8">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="mb-6 md:mb-0">
+                    <a href="#" class="text-2xl font-bold">Your Name</a>
+                    <p class="text-gray-400 mt-2">Communication Strategist & Content Creator</p>
+                </div>
+                
+                <div class="flex flex-wrap justify-center gap-6">
+                    <a href="#" class="text-gray-400 hover:text-white transition">Home</a>
+                    <a href="#" class="text-gray-400 hover:text-white transition">Services</a>
+                    <a href="#" class="text-gray-400 hover:text-white transition">Portfolio</a>
+                    <a href="#" class="text-gray-400 hover:text-white transition">About</a>
+                    <a href="#" class="text-gray-400 hover:text-white transition">Contact</a>
                 </div>
             </div>
             
-            <div class="mt-12 text-center">
-                <p class="mb-4 opacity-90">Prefer to connect another way?</p>
-                <div class="flex justify-center space-x-6">
-                    <a href="#" class="hover:text-gray-200 transition">
-                        <i class="fab fa-linkedin text-2xl"></i>
-                    </a>
-                    <a href="#" class="hover:text-gray-200 transition">
-                        <i class="fab fa-twitter text-2xl"></i>
-                    </a>
-                    <a href="#" class="hover:text-gray-200 transition">
-                        <i class="fas fa-envelope text-2xl"></i>
-                    </a>
-                    <a href="#" class="hover:text-gray-200 transition">
-                        <i class="fab fa-instagram text-2xl"></i>
-                    </a>
-                </div>
+            <div class="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400 text-sm">
+                <p>&copy; 2023 Your Name. All rights reserved.</p>
             </div>
         </div>
-    </div>
-</section>
+    </footer>
 
-<!-- Footer -->
-<footer class="bg-gray-900 text-white py-12">
-    <div class="container mx-auto px-4 md:px-8">
-        <div class="flex flex-col md:flex-row justify-between items-center">
-            <div class="mb-6 md:mb-0">
-                <a href="#" class="text-2xl font-bold">Your Name</a>
-                <p class="text-gray-400 mt-2">Communication Strategist & Content Creator</p>
-            </div>
+    <script>
+        // Tab functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const tabButtons = document.querySelectorAll('.tab-button');
+            const tabContents = document.querySelectorAll('.tab-content');
             
-            <div class="flex flex-wrap justify-center gap-6">
-                <a href="#" class="text-gray-400 hover:text-white transition">Home</a>
-                <a href="#" class="text-gray-400 hover:text-white transition">Services</a>
-                <a href="#" class="text-gray-400 hover:text-white transition">Portfolio</a>
-                <a href="#" class="text-gray-400 hover:text-white transition">About</a>
-                <a href="#" class="text-gray-400 hover:text-white transition">Contact</a>
-            </div>
-        </div>
-        
-        <div class="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400 text-sm">
-            <p>&copy; 2023 Your Name. All rights reserved.</p>
-        </div>
-    </div>
-</footer>
-
-<script>
-    // Tab functionality
-    document.addEventListener('DOMContentLoaded', function() {
-        const tabButtons = document.querySelectorAll('.tab-button');
-        const tabContents = document.querySelectorAll('.tab-content');
-        
-        tabButtons.forEach(button => {
-            button.addEventListener('click', () => {
-                // Remove active class from all buttons and contents
-                tabButtons.forEach(btn => btn.classList.remove('active'));
-                tabContents.forEach(content => content.classList.remove('active'));
+            tabButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    // Remove active class from all buttons and contents
+                    tabButtons.forEach(btn => btn.classList.remove('active'));
+                    tabContents.forEach(content => content.classList.remove('active'));
+                    
+                    // Add active class to clicked button and corresponding content
+                    button.classList.add('active');
+                    const tabId = button.getAttribute('data-tab');
+                    document.getElementById(tabId).classList.add('active');
+                });
+            });
+            
+            // Contact form submission
+            const contactForm = document.getElementById('contactForm');
+            const formSuccess = document.getElementById('formSuccess');
+            
+            contactForm.addEventListener('submit', function(e) {
+                e.preventDefault();
                 
-                // Add active class to clicked button and corresponding content
-                button.classList.add('active');
-                const tabId = button.getAttribute('data-tab');
-                document.getElementById(tabId).classList.add('active');
+                // In a real implementation, you would send the form data to a server
+                // For this demo, we'll just show the success message
+                contactForm.reset();
+                formSuccess.classList.remove('hidden');
+                
+                // Hide success message after 5 seconds
+                setTimeout(() => {
+                    formSuccess.classList.add('hidden');
+                }, 5000);
+            });
+            
+            // Mobile menu toggle (simplified for demo)
+            const menuButton = document.querySelector('nav button');
+            menuButton.addEventListener('click', function() {
+                alert('Mobile menu would toggle here in a real implementation');
             });
         });
-        
-        // Contact form submission
-        const contactForm = document.getElementById('contactForm');
-        const formSuccess = document.getElementById('formSuccess');
-        
-        contactForm.addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            // In a real implementation, you would send the form data to a server
-            // For this demo, we'll just show the success message
-            contactForm.reset();
-            formSuccess.classList.remove('hidden');
-            
-            // Hide success message after 5 seconds
-            setTimeout(() => {
-                formSuccess.classList.add('hidden');
-            }, 5000);
-        });
-        
-        // Mobile menu toggle (simplified for demo)
-        const menuButton = document.querySelector('nav button');
-        menuButton.addEventListener('click', function() {
-            alert('Mobile menu would toggle here in a real implementation');
-        });
-    });
-</script>
+    </script>
+</body>
+</html>
