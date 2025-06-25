@@ -1,645 +1,932 @@
-html
-    body {
-        font-family: 'Poppins', sans-serif;
-        background-color: #f8f9fa;
-    }
-    
-    .service-card {
-        transition: all 0.3s ease;
-    }
-    
-    .service-card:hover {
-        transform: translateY(-5px);
-        box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
-    }
-    
-    .service-icon {
-        transition: all 0.3s ease;
-    }
-    
-    .service-card:hover .service-icon {
-        transform: scale(1.1);
-    }
-    
-    .tab-content {
-        display: none;
-    }
-    
-    .tab-content.active {
-        display: block;
-        animation: fadeIn 0.5s ease-in-out;
-    }
-    
-    @keyframes fadeIn {
-        from { opacity: 0; transform: translateY(10px); }
-        to { opacity: 1; transform: translateY(0); }
-    }
-    
-    .tab-button {
-        position: relative;
-    }
-    
-    .tab-button.active::after {
-        content: '';
-        position: absolute;
-        bottom: -2px;
-        left: 0;
-        width: 100%;
-        height: 2px;
-        background-color: #4f46e5;
-    }
-</style>
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            <!-- Service 1 -->
-            <div class="service-card bg-gray-50 rounded-xl p-8 border border-gray-100">
-                <div class="service-icon bg-indigo-100 text-indigo-600 w-16 h-16 rounded-full flex items-center justify-center mb-6">
-                    <i class="fas fa-pen-fancy text-2xl"></i>
-                </div>
-                <h3 class="text-xl font-bold mb-3">Content Strategy & Copywriting</h3>
-                <p class="text-gray-600 mb-4">I help brands find their voice and tell their story through compelling web copy, email campaigns, scripts, and blog articles.</p>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Services | Your Portfolio</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f8f9fa;
+            color: #333;
+            line-height: 1.6;
+            scroll-behavior: smooth;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        header {
+            background-color: #fff;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 50;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #4f46e5;
+            text-decoration: none;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+
+        nav ul li {
+            margin-left: 30px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: #555;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        nav ul li a:hover {
+            color: #4f46e5;
+        }
+
+        nav ul li a.active {
+            color: #4f46e5;
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: #555;
+            cursor: pointer;
+        }
+
+        .section {
+            padding: 80px 0;
+        }
+
+        .section-white {
+            background-color: #fff;
+        }
+
+        .section-gray {
+            background-color: #f8f9fa;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-title h2 {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .service-card {
+            background-color: #f8f9fa;
+            border: 1px solid #eee;
+            border-radius: 12px;
+            padding: 30px;
+            transition: all 0.3s ease;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+
+        .service-icon {
+            width: 64px;
+            height: 64px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 24px;
+            transition: all 0.3s ease;
+        }
+
+        .service-card:hover .service-icon {
+            transform: scale(1.1);
+        }
+
+        .service-title {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 12px;
+        }
+
+        .service-description {
+            color: #666;
+            margin-bottom: 16px;
+        }
+
+        .service-card .learn-more-btn {
+            margin-top: auto;
+            align-self: flex-start;
+        }
+
+        .cta-card {
+            background: linear-gradient(135deg, #4f46e5 0%, #9333ea 100%);
+            color: white;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background-color: white;
+            color: #4f46e5;
+            font-weight: 500;
+            padding: 12px 24px;
+            border-radius: 8px;
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+
+        .cta-button:hover {
+            background-color: rgba(255, 255, 255, 0.9);
+        }
+
+        .learn-more-btn {
+            display: inline-block;
+            background-color: transparent;
+            color: #4f46e5;
+            font-weight: 500;
+            padding: 8px 16px;
+            border: 1px solid #4f46e5;
+            border-radius: 8px;
+            text-decoration: none;
+            transition: all 0.3s;
+            cursor: pointer;
+            align-self: flex-start;
+        }
+
+        .learn-more-btn:hover {
+            background-color: #4f46e5;
+            color: white;
+        }
+
+        /* Modal Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 100;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0,0,0,0.5);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .modal.show {
+            opacity: 1;
+        }
+
+        .modal-content {
+            background-color: #fff;
+            margin: 10% auto;
+            padding: 30px;
+            border-radius: 12px;
+            width: 80%;
+            max-width: 700px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            position: relative;
+            transform: translateY(-50px);
+            opacity: 0;
+            transition: all 0.4s ease;
+        }
+
+        .modal.show .modal-content {
+            transform: translateY(0);
+            opacity: 1;
+        }
+
+        .close-modal {
+            position: absolute;
+            right: 20px;
+            top: 15px;
+            font-size: 28px;
+            font-weight: bold;
+            color: #fff;
+            cursor: pointer;
+            transition: color 0.3s;
+            z-index: 10;
+        }
+
+        .close-modal:hover {
+            color: rgba(255,255,255,0.8);
+        }
+
+        .modal-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+            padding: 20px;
+            border-radius: 8px 8px 0 0;
+            color: white;
+            position: relative;
+            margin: -30px -30px 20px -30px;
+        }
+
+        .modal-icon {
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 15px;
+            background-color: rgba(255,255,255,0.2);
+            color: white;
+        }
+
+        .modal-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+        }
+
+        .modal-body {
+            padding: 0 10px;
+        }
+
+        .modal-body h4 {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin: 20px 0 10px;
+            color: #333;
+        }
+
+        .modal-body p {
+            margin-bottom: 15px;
+            color: #555;
+        }
+
+        .modal-body ul {
+            list-style: none;
+            margin-bottom: 20px;
+        }
+
+        .modal-body ul li {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 10px;
+            color: #555;
+        }
+
+        .modal-indigo .modal-body ul li:before {
+            content: "✓";
+            margin-right: 10px;
+            color: #4f46e5;
+            font-weight: bold;
+        }
+
+        .modal-purple .modal-body ul li:before {
+            content: "✓";
+            margin-right: 10px;
+            color: #9333ea;
+            font-weight: bold;
+        }
+
+        .modal-blue .modal-body ul li:before {
+            content: "✓";
+            margin-right: 10px;
+            color: #2563eb;
+            font-weight: bold;
+        }
+
+        .modal-pink .modal-body ul li:before {
+            content: "✓";
+            margin-right: 10px;
+            color: #db2777;
+            font-weight: bold;
+        }
+
+        .modal-green .modal-body ul li:before {
+            content: "✓";
+            margin-right: 10px;
+            color: #10b981;
+            font-weight: bold;
+        }
+
+        .approach-step {
+            background-color: #f8f9fa;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 15px;
+            border-left: 4px solid;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .approach-step:hover {
+            transform: translateX(5px);
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        }
+
+        .approach-step h5 {
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+
+        .approach-step p {
+            color: #666;
+            font-size: 0.9rem;
+            margin-bottom: 0;
+        }
+
+        .modal-footer {
+            margin-top: 30px;
+            text-align: center;
+        }
+
+        .modal-cta {
+            display: inline-block;
+            font-weight: 500;
+            padding: 12px 24px;
+            border-radius: 8px;
+            text-decoration: none;
+            transition: all 0.3s;
+            color: white;
+        }
+
+        .modal-cta:hover {
+            opacity: 0.9;
+            transform: translateY(-2px);
+        }
+
+        /* Modal color themes */
+        .modal-indigo .modal-header {
+            background: linear-gradient(135deg, #4f46e5 0%, #818cf8 100%);
+        }
+
+        .modal-indigo .approach-step {
+            border-color: #4f46e5;
+        }
+
+        .modal-indigo .modal-cta {
+            background-color: #4f46e5;
+        }
+
+        .modal-purple .modal-header {
+            background: linear-gradient(135deg, #9333ea 0%, #c084fc 100%);
+        }
+
+        .modal-purple .approach-step {
+            border-color: #9333ea;
+        }
+
+        .modal-purple .modal-cta {
+            background-color: #9333ea;
+        }
+
+        .modal-blue .modal-header {
+            background: linear-gradient(135deg, #2563eb 0%, #60a5fa 100%);
+        }
+
+        .modal-blue .approach-step {
+            border-color: #2563eb;
+        }
+
+        .modal-blue .modal-cta {
+            background-color: #2563eb;
+        }
+
+        .modal-pink .modal-header {
+            background: linear-gradient(135deg, #db2777 0%, #f472b6 100%);
+        }
+
+        .modal-pink .approach-step {
+            border-color: #db2777;
+        }
+
+        .modal-pink .modal-cta {
+            background-color: #db2777;
+        }
+
+        .modal-green .modal-header {
+            background: linear-gradient(135deg, #10b981 0%, #34d399 100%);
+        }
+
+        .modal-green .approach-step {
+            border-color: #10b981;
+        }
+
+        .modal-green .modal-cta {
+            background-color: #10b981;
+        }
+
+        /* Back to top button */
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background-color: #4f46e5;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+            z-index: 40;
+        }
+
+        .back-to-top.visible {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .back-to-top:hover {
+            background-color: #4338ca;
+            transform: translateY(-3px);
+        }
+
+        /* Mobile menu */
+        @media (max-width: 768px) {
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            nav ul {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background-color: white;
+                flex-direction: column;
+                padding: 20px;
+                box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+            }
+            
+            nav ul.show {
+                display: flex;
+            }
+            
+            nav ul li {
+                margin: 10px 0;
+            }
+            
+            .modal-content {
+                width: 95%;
+                margin: 5% auto;
+            }
+            
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navigation Bar -->
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <a href="https://teslacadena.com" class="logo">Tesla Cadena</a>
+                
+                <button class="mobile-menu-btn" id="mobileMenuBtn">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+                </button>
+                
+                <nav>
+                    <ul id="navMenu">
+                        <li><a href="https://teslacadena.com/about-me">About Me</a></li>
+                        <li><a href="services.html" class="active">Services</a></li>
+                        <li><a href="https://teslacadena.com">Portfolio</a></li>
+                        <li><a href="https://calendly.com/teslacadena/one-on-one-chat">Collaborate</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Services Overview -->
+    <section class="section section-white">
+        <div class="container">
+            <div class="section-title">
+                <h2>How I Can Help You</h2>
             </div>
             
-            <!-- Service 2 -->
-            <div class="service-card bg-gray-50 rounded-xl p-8 border border-gray-100">
-                <div class="service-icon bg-purple-100 text-purple-600 w-16 h-16 rounded-full flex items-center justify-center mb-6">
-                    <i class="fas fa-video text-2xl"></i>
+            <div class="services-grid">
+                <!-- Service 1 -->
+                <div class="service-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="service-icon" style="background-color: #e0e7ff; color: #4f46e5;">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 3a2.828 2.828 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5L17 3z"></path></svg>
+                    </div>
+                    <h3 class="service-title">Content Strategy & Copywriting</h3>
+                    <p class="service-description">Transform ideas into clear, persuasive content that reflects your voice and drives action.</p>
+                    <button class="learn-more-btn" onclick="openModal('modal1')">Learn More</button>
                 </div>
-                <h3 class="text-xl font-bold mb-3">Video Concepting & Production</h3>
-                <p class="text-gray-600 mb-4">From unscripted interviews to animated explainers, I bring stories to life through video—guiding the entire production process.</p>
+                
+                <!-- Service 2 -->
+                <div class="service-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="service-icon" style="background-color: #f3e8ff; color: #9333ea;">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+                    </div>
+                    <h3 class="service-title">Social Media Strategy & Content</h3>
+                    <p class="service-description">Create scroll-stopping posts and smart strategies that keep your brand relevant, visible, and engaging.</p>
+                    <button class="learn-more-btn" onclick="openModal('modal2')">Learn More</button>
+                </div>
+                
+                <!-- Service 3 -->
+                <div class="service-card" data-aos="fade-up" data-aos-delay="300">
+                    <div class="service-icon" style="background-color: #dbeafe; color: #2563eb;">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.24 12.24a6 6 0 0 0-8.49-8.49L5 10.5V19h8.5z"></path><line x1="16" y1="8" x2="2" y2="22"></line><line x1="17.5" y1="15" x2="9" y2="15"></line></svg>
+                    </div>
+                    <h3 class="service-title">Brand Messaging & Positioning</h3>
+                    <p class="service-description">Define what sets you apart with a messaging toolkit built to connect and convert across platforms and audiences.</p>
+                    <button class="learn-more-btn" onclick="openModal('modal3')">Learn More</button>
+                </div>
+                
+                <!-- Service 4 -->
+                <div class="service-card" data-aos="fade-up" data-aos-delay="400">
+                    <div class="service-icon" style="background-color: #fce7f3; color: #db2777;">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+                    </div>
+                    <h3 class="service-title">Event Marketing & Coordination</h3>
+                    <p class="service-description">Turn moments into momentum with events that capture attention and spark meaningful connections.</p>
+                    <button class="learn-more-btn" onclick="openModal('modal4')">Learn More</button>
+                </div>
+                
+                <!-- Service 5 -->
+                <div class="service-card" data-aos="fade-up" data-aos-delay="500">
+                    <div class="service-icon" style="background-color: #d1fae5; color: #10b981;">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline></svg>
+                    </div>
+                    <h3 class="service-title">Campaign Planning & Execution</h3>
+                    <p class="service-description">Launch seamless campaigns that blend storytelling, strategy, and results across every touchpoint.</p>
+                    <button class="learn-more-btn" onclick="openModal('modal5')">Learn More</button>
+                </div>
+                
+                <!-- Service 6 / CTA -->
+                <div class="service-card cta-card" data-aos="fade-up" data-aos-delay="600">
+                    <div class="service-icon" style="background-color: rgba(255,255,255,0.2); color: white;">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
+                    </div>
+                    <h3 class="service-title">Need Something Specific</h3>
+                    <p class="service-description" style="color: white;">Let's discuss how I can meet your unique communication needs.</p>
+                    <a href="https://calendly.com/teslacadena/one-on-one-chat" target="_blank" class="cta-button">Get In Touch</a>
+                </div>
             </div>
-            
-            <!-- Service 3 -->
-            <div class="service-card bg-gray-50 rounded-xl p-8 border border-gray-100">
-                <div class="service-icon bg-blue-100 text-blue-600 w-16 h-16 rounded-full flex items-center justify-center mb-6">
-                    <i class="fas fa-bullhorn text-2xl"></i>
+        </div>
+    </section>
+
+    <!-- Back to top button -->
+    <a href="#" class="back-to-top" id="backToTop">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="19" x2="12" y2="5"></line><polyline points="5 12 12 5 19 12"></polyline></svg>
+    </a>
+
+    <!-- Modal 1: Content Strategy -->
+    <div id="modal1" class="modal">
+        <div class="modal-content modal-indigo">
+            <span class="close-modal" onclick="closeModal('modal1')">&times;</span>
+            <div class="modal-header">
+                <div class="modal-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 3a2.828 2.828 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5L17 3z"></path></svg>
                 </div>
-                <h3 class="text-xl font-bold mb-3">Brand Messaging & Positioning</h3>
-                <p class="text-gray-600 mb-4">I craft messaging frameworks that align with your goals and resonate with your audience, whether refreshing or launching.</p>
+                <h3 class="modal-title">Content Strategy & Copywriting</h3>
             </div>
-            
-            <!-- Service 4 -->
-            <div class="service-card bg-gray-50 rounded-xl p-8 border border-gray-100">
-                <div class="service-icon bg-pink-100 text-pink-600 w-16 h-16 rounded-full flex items-center justify-center mb-6">
-                    <i class="fas fa-calendar-check text-2xl"></i>
+            <div class="modal-body">
+                <p>I create content that connects with your audience and drives action, from website copy to email campaigns and blog articles.</p>
+                
+                <h4>Services Include:</h4>
+                <ul>
+                    <li>Website copy that reflects your unique voice</li>
+                    <li>Email campaigns that drive conversions</li>
+                    <li>Blog strategy and article creation</li>
+                    <li>SEO-friendly content that ranks</li>
+                    <li>Brand storytelling and narrative</li>
+                </ul>
+                
+                <h4>My Approach:</h4>
+                <div class="approach-steps">
+                    <div class="approach-step" style="border-color: #4f46e5;">
+                        <h5>1. Research & Strategy</h5>
+                        <p>Understanding your brand, audience, and goals to develop a targeted content plan</p>
+                    </div>
+                    <div class="approach-step" style="border-color: #4f46e5;">
+                        <h5>2. Content Creation</h5>
+                        <p>Crafting compelling copy optimized for each platform and purpose</p>
+                    </div>
+                    <div class="approach-step" style="border-color: #4f46e5;">
+                        <h5>3. Measurement & Refinement</h5>
+                        <p>Tracking performance to continuously improve your content strategy</p>
+                    </div>
                 </div>
-                <h3 class="text-xl font-bold mb-3">Event Marketing & Coordination</h3>
-                <p class="text-gray-600 mb-4">I design experiences that build community and elevate your brand, handling promotion, logistics, and storytelling.</p>
             </div>
-            
-            <!-- Service 5 -->
-            <div class="service-card bg-gray-50 rounded-xl p-8 border border-gray-100">
-                <div class="service-icon bg-green-100 text-green-600 w-16 h-16 rounded-full flex items-center justify-center mb-6">
-                    <i class="fas fa-chart-line text-2xl"></i>
-                </div>
-                <h3 class="text-xl font-bold mb-3">Campaign Planning & Execution</h3>
-                <p class="text-gray-600 mb-4">I develop and manage multi-channel campaigns that deliver results across email, landing pages, social media, and more.</p>
-            </div>
-            
-            <!-- Service 6 / CTA -->
-            <div class="service-card bg-gradient-to-br from-indigo-600 to-purple-600 rounded-xl p-8 text-white">
-                <div class="service-icon bg-white bg-opacity-20 w-16 h-16 rounded-full flex items-center justify-center mb-6">
-                    <i class="fas fa-comments text-2xl"></i>
-                </div>
-                <h3 class="text-xl font-bold mb-3">Custom Solutions</h3>
-                <p class="text-white text-opacity-90 mb-4">Need something specific? Let's discuss how I can tailor my services to meet your unique communication needs.</p>
+            <div class="modal-footer">
+                <a href="https://calendly.com/teslacadena/one-on-one-chat" target="_blank" class="modal-cta">Schedule a Consultation</a>
             </div>
         </div>
     </div>
-</section>
 
-<!-- Detailed Service Tabs -->
-<section class="py-16 bg-gray-50" id="service-details">
-    <div class="container mx-auto px-4 md:px-8">
-        <div class="text-center mb-12">
-            <h2 class="text-3xl font-bold mb-4">Service Details</h2>
-            <p class="text-gray-600 max-w-2xl mx-auto">Explore each service in detail to understand my approach and how I can help you achieve your goals.</p>
-        </div>
-        
-        <!-- Tab Navigation -->
-        <div class="flex flex-wrap justify-center mb-8 border-b border-gray-200">
-            <button class="tab-button active px-6 py-3 text-gray-700 hover:text-indigo-600 focus:outline-none" data-tab="content-strategy">
-                Content Strategy
-            </button>
-            <button class="tab-button px-6 py-3 text-gray-700 hover:text-indigo-600 focus:outline-none" data-tab="video-production">
-                Video Production
-            </button>
-            <button class="tab-button px-6 py-3 text-gray-700 hover:text-indigo-600 focus:outline-none" data-tab="brand-messaging">
-                Brand Messaging
-            </button>
-            <button class="tab-button px-6 py-3 text-gray-700 hover:text-indigo-600 focus:outline-none" data-tab="event-marketing">
-                Event Marketing
-            </button>
-            <button class="tab-button px-6 py-3 text-gray-700 hover:text-indigo-600 focus:outline-none" data-tab="campaign-planning">
-                Campaign Planning
-            </button>
-        </div>
-        
-        <!-- Tab Content -->
-        <div class="tab-content-container">
-            <!-- Content Strategy Tab -->
-            <div id="content-strategy" class="tab-content active">
-                <div class="bg-white rounded-xl shadow-sm overflow-hidden">
-                    <div class="md:flex">
-                        <div class="md:w-1/2 bg-indigo-600 text-white p-10 flex items-center">
-                            <div>
-                                <h3 class="text-2xl font-bold mb-4">Content Strategy & Copywriting</h3>
-                                <p class="mb-6">I help brands find their voice and tell their story. From web copy and email campaigns to scripts and blog articles, I create content that connects and converts.</p>
-                                <ul class="space-y-3">
-                                    <li class="flex items-start">
-                                        <i class="fas fa-check-circle mt-1 mr-3"></i>
-                                        <span>Website copy that captures your brand voice</span>
-                                    </li>
-                                    <li class="flex items-start">
-                                        <i class="fas fa-check-circle mt-1 mr-3"></i>
-                                        <span>Email campaigns with high open and click rates</span>
-                                    </li>
-                                    <li class="flex items-start">
-                                        <i class="fas fa-check-circle mt-1 mr-3"></i>
-                                        <span>Blog content strategy and article creation</span>
-                                    </li>
-                                    <li class="flex items-start">
-                                        <i class="fas fa-check-circle mt-1 mr-3"></i>
-                                        <span>Script writing for videos and presentations</span>
-                                    </li>
-                                    <li class="flex items-start">
-                                        <i class="fas fa-check-circle mt-1 mr-3"></i>
-                                        <span>SEO-optimized content that ranks</span>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="md:w-1/2 p-10">
-                            <h4 class="text-xl font-semibold mb-4">My Approach</h4>
-                            <p class="text-gray-600 mb-6">I begin by understanding your brand, audience, and goals. Then I develop a content strategy that aligns with your business objectives and resonates with your target market.</p>
-                            
-                            <div class="space-y-4 mb-8">
-                                <div class="bg-gray-50 p-4 rounded-lg">
-                                    <h5 class="font-medium mb-2">Research & Strategy</h5>
-                                    <p class="text-gray-600 text-sm">Audience analysis, competitor research, and content planning</p>
-                                </div>
-                                <div class="bg-gray-50 p-4 rounded-lg">
-                                    <h5 class="font-medium mb-2">Content Creation</h5>
-                                    <p class="text-gray-600 text-sm">Writing, editing, and optimizing content for your channels</p>
-                                </div>
-                                <div class="bg-gray-50 p-4 rounded-lg">
-                                    <h5 class="font-medium mb-2">Measurement & Refinement</h5>
-                                    <p class="text-gray-600 text-sm">Analyzing performance and iterating for better results</p>
-                                </div>
-                            </div>
-                        </div>
+    <!-- Modal 2: Social Media -->
+    <div id="modal2" class="modal">
+        <div class="modal-content modal-purple">
+            <span class="close-modal" onclick="closeModal('modal2')">&times;</span>
+            <div class="modal-header">
+                <div class="modal-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+                </div>
+                <h3 class="modal-title">Social Media Strategy & Content</h3>
+            </div>
+            <div class="modal-body">
+                <p>I help brands build meaningful connections on social media that drive engagement and visibility with your target audience.</p>
+                
+                <h4>Services Include:</h4>
+                <ul>
+                    <li>Platform-specific content strategies</li>
+                    <li>Content calendar development</li>
+                    <li>Engagement-focused copywriting</li>
+                    <li>Community management guidance</li>
+                    <li>Performance analysis and optimization</li>
+                </ul>
+                
+                <h4>My Approach:</h4>
+                <div class="approach-steps">
+                    <div class="approach-step" style="border-color: #9333ea;">
+                        <h5>1. Platform Strategy</h5>
+                        <p>Identifying the right platforms for your audience and goals</p>
+                    </div>
+                    <div class="approach-step" style="border-color: #9333ea;">
+                        <h5>2. Content Development</h5>
+                        <p>Creating engaging, shareable content that resonates with your audience</p>
+                    </div>
+                    <div class="approach-step" style="border-color: #9333ea;">
+                        <h5>3. Growth & Engagement</h5>
+                        <p>Building authentic community while tracking metrics for continuous improvement</p>
                     </div>
                 </div>
             </div>
-            
-            <!-- Video Production Tab -->
-            <div id="video-production" class="tab-content">
-                <div class="bg-white rounded-xl shadow-sm overflow-hidden">
-                    <div class="md:flex">
-                        <div class="md:w-1/2 bg-purple-600 text-white p-10 flex items-center">
-                            <div>
-                                <h3 class="text-2xl font-bold mb-4">Video Concepting & Production</h3>
-                                <p class="mb-6">Whether it's unscripted interviews, animated explainers, or short-form ads, I bring stories to life through video—guiding everything from scripting to final edit.</p>
-                                <ul class="space-y-3">
-                                    <li class="flex items-start">
-                                        <i class="fas fa-check-circle mt-1 mr-3"></i>
-                                        <span>Brand videos that showcase your values</span>
-                                    </li>
-                                    <li class="flex items-start">
-                                        <i class="fas fa-check-circle mt-1 mr-3"></i>
-                                        <span>Product demos and tutorials</span>
-                                    </li>
-                                    <li class="flex items-start">
-                                        <i class="fas fa-check-circle mt-1 mr-3"></i>
-                                        <span>Animated explainer videos</span>
-                                    </li>
-                                    <li class="flex items-start">
-                                        <i class="fas fa-check-circle mt-1 mr-3"></i>
-                                        <span>Social media video content</span>
-                                    </li>
-                                    <li class="flex items-start">
-                                        <i class="fas fa-check-circle mt-1 mr-3"></i>
-                                        <span>Interview and testimonial videos</span>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="md:w-1/2 p-10">
-                            <h4 class="text-xl font-semibold mb-4">My Approach</h4>
-                            <p class="text-gray-600 mb-6">I take a strategic approach to video production, ensuring that every piece of content serves your business goals while engaging your audience effectively.</p>
-                            
-                            <div class="space-y-4 mb-8">
-                                <div class="bg-gray-50 p-4 rounded-lg">
-                                    <h5 class="font-medium mb-2">Concept Development</h5>
-                                    <p class="text-gray-600 text-sm">Creating compelling video concepts aligned with your brand</p>
-                                </div>
-                                <div class="bg-gray-50 p-4 rounded-lg">
-                                    <h5 class="font-medium mb-2">Production Management</h5>
-                                    <p class="text-gray-600 text-sm">Coordinating filming, animation, and all production elements</p>
-                                </div>
-                                <div class="bg-gray-50 p-4 rounded-lg">
-                                    <h5 class="font-medium mb-2">Post-Production</h5>
-                                    <p class="text-gray-600 text-sm">Editing, sound design, and finalizing your videos</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- Brand Messaging Tab -->
-            <div id="brand-messaging" class="tab-content">
-                <div class="bg-white rounded-xl shadow-sm overflow-hidden">
-                    <div class="md:flex">
-                        <div class="md:w-1/2 bg-blue-600 text-white p-10 flex items-center">
-                            <div>
-                                <h3 class="text-2xl font-bold mb-4">Brand Messaging & Positioning</h3>
-                                <p class="mb-6">Need to refresh your brand or launch a new initiative? I craft messaging frameworks that align with your goals and resonate with your audience.</p>
-                                <ul class="space-y-3">
-                                    <li class="flex items-start">
-                                        <i class="fas fa-check-circle mt-1 mr-3"></i>
-                                        <span>Brand voice and tone development</span>
-                                    </li>
-                                    <li class="flex items-start">
-                                        <i class="fas fa-check-circle mt-1 mr-3"></i>
-                                        <span>Messaging frameworks and guidelines</span>
-                                    </li>
-                                    <li class="flex items-start">
-                                        <i class="fas fa-check-circle mt-1 mr-3"></i>
-                                        <span>Value proposition refinement</span>
-                                    </li>
-                                    <li class="flex items-start">
-                                        <i class="fas fa-check-circle mt-1 mr-3"></i>
-                                        <span>Brand story development</span>
-                                    </li>
-                                    <li class="flex items-start">
-                                        <i class="fas fa-check-circle mt-1 mr-3"></i>
-                                        <span>Competitive positioning strategy</span>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="md:w-1/2 p-10">
-                            <h4 class="text-xl font-semibold mb-4">My Approach</h4>
-                            <p class="text-gray-600 mb-6">I help you articulate what makes your brand unique and develop messaging that connects with your target audience on a deeper level.</p>
-                            
-                            <div class="space-y-4 mb-8">
-                                <div class="bg-gray-50 p-4 rounded-lg">
-                                    <h5 class="font-medium mb-2">Brand Discovery</h5>
-                                    <p class="text-gray-600 text-sm">Uncovering your unique value and market position</p>
-                                </div>
-                                <div class="bg-gray-50 p-4 rounded-lg">
-                                    <h5 class="font-medium mb-2">Messaging Development</h5>
-                                    <p class="text-gray-600 text-sm">Creating key messages for different audiences and channels</p>
-                                </div>
-                                <div class="bg-gray-50 p-4 rounded-lg">
-                                    <h5 class="font-medium mb-2">Implementation Support</h5>
-                                    <p class="text-gray-600 text-sm">Helping your team apply the messaging consistently</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- Event Marketing Tab -->
-            <div id="event-marketing" class="tab-content">
-                <div class="bg-white rounded-xl shadow-sm overflow-hidden">
-                    <div class="md:flex">
-                        <div class="md:w-1/2 bg-pink-600 text-white p-10 flex items-center">
-                            <div>
-                                <h3 class="text-2xl font-bold mb-4">Event Marketing & Coordination</h3>
-                                <p class="mb-6">From conferences to virtual panels, I design experiences that build community and elevate your brand. I handle promotion, logistics, and storytelling.</p>
-                                <ul class="space-y-3">
-                                    <li class="flex items-start">
-                                        <i class="fas fa-check-circle mt-1 mr-3"></i>
-                                        <span>In-person and virtual event planning</span>
-                                    </li>
-                                    <li class="flex items-start">
-                                        <i class="fas fa-check-circle mt-1 mr-3"></i>
-                                        <span>Event promotion and audience building</span>
-                                    </li>
-                                    <li class="flex items-start">
-                                        <i class="fas fa-check-circle mt-1 mr-3"></i>
-                                        <span>Speaker coordination and content development</span>
-                                    </li>
-                                    <li class="flex items-start">
-                                        <i class="fas fa-check-circle mt-1 mr-3"></i>
-                                        <span>Event branding and materials</span>
-                                    </li>
-                                    <li class="flex items-start">
-                                        <i class="fas fa-check-circle mt-1 mr-3"></i>
-                                        <span>Post-event engagement and follow-up</span>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="md:w-1/2 p-10">
-                            <h4 class="text-xl font-semibold mb-4">My Approach</h4>
-                            <p class="text-gray-600 mb-6">I create events that deliver meaningful experiences for attendees while achieving your business objectives and strengthening your brand.</p>
-                            
-                            <div class="space-y-4 mb-8">
-                                <div class="bg-gray-50 p-4 rounded-lg">
-                                    <h5 class="font-medium mb-2">Event Strategy</h5>
-                                    <p class="text-gray-600 text-sm">Defining goals, audience, and format for maximum impact</p>
-                                </div>
-                                <div class="bg-gray-50 p-4 rounded-lg">
-                                    <h5 class="font-medium mb-2">Execution & Management</h5>
-                                    <p class="text-gray-600 text-sm">Handling logistics, coordination, and day-of management</p>
-                                </div>
-                                <div class="bg-gray-50 p-4 rounded-lg">
-                                    <h5 class="font-medium mb-2">Promotion & Follow-up</h5>
-                                    <p class="text-gray-600 text-sm">Marketing your event and nurturing leads afterward</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- Campaign Planning Tab -->
-            <div id="campaign-planning" class="tab-content">
-                <div class="bg-white rounded-xl shadow-sm overflow-hidden">
-                    <div class="md:flex">
-                        <div class="md:w-1/2 bg-green-600 text-white p-10 flex items-center">
-                            <div>
-                                <h3 class="text-2xl font-bold mb-4">Campaign Planning & Execution</h3>
-                                <p class="mb-6">I develop and manage multi-channel campaigns that deliver results. Think: email series, landing pages, organic social, paid content, and more.</p>
-                                <ul class="space-y-3">
-                                    <li class="flex items-start">
-                                        <i class="fas fa-check-circle mt-1 mr-3"></i>
-                                        <span>Integrated marketing campaigns</span>
-                                    </li>
-                                    <li class="flex items-start">
-                                        <i class="fas fa-check-circle mt-1 mr-3"></i>
-                                        <span>Product and service launches</span>
-                                    </li>
-                                    <li class="flex items-start">
-                                        <i class="fas fa-check-circle mt-1 mr-3"></i>
-                                        <span>Lead generation campaigns</span>
-                                    </li>
-                                    <li class="flex items-start">
-                                        <i class="fas fa-check-circle mt-1 mr-3"></i>
-                                        <span>Content marketing programs</span>
-                                    </li>
-                                    <li class="flex items-start">
-                                        <i class="fas fa-check-circle mt-1 mr-3"></i>
-                                        <span>Performance tracking and optimization</span>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="md:w-1/2 p-10">
-                            <h4 class="text-xl font-semibold mb-4">My Approach</h4>
-                            <p class="text-gray-600 mb-6">I create data-driven campaigns that connect with your audience across multiple touchpoints to drive engagement and conversions.</p>
-                            
-                            <div class="space-y-4 mb-8">
-                                <div class="bg-gray-50 p-4 rounded-lg">
-                                    <h5 class="font-medium mb-2">Campaign Strategy</h5>
-                                    <p class="text-gray-600 text-sm">Setting objectives, audience targeting, and channel selection</p>
-                                </div>
-                                <div class="bg-gray-50 p-4 rounded-lg">
-                                    <h5 class="font-medium mb-2">Content Development</h5>
-                                    <p class="text-gray-600 text-sm">Creating compelling assets for each channel and stage</p>
-                                </div>
-                                <div class="bg-gray-50 p-4 rounded-lg">
-                                    <h5 class="font-medium mb-2">Measurement & Optimization</h5>
-                                    <p class="text-gray-600 text-sm">Tracking performance and refining for better results</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+            <div class="modal-footer">
+                <a href="https://calendly.com/teslacadena/one-on-one-chat" target="_blank" class="modal-cta">Schedule a Consultation</a>
             </div>
         </div>
     </div>
-</section>
 
-<!-- Process Section -->
-<section class="py-16 bg-white">
-    <div class="container mx-auto px-4 md:px-8">
-        <div class="text-center mb-16">
-            <h2 class="text-3xl font-bold mb-4">My Process</h2>
-            <p class="text-gray-600 max-w-2xl mx-auto">I follow a proven approach to ensure your project is successful from start to finish.</p>
-        </div>
-        
-        <div class="max-w-4xl mx-auto">
-            <div class="relative">
-                <!-- Process Line -->
-                <div class="hidden md:block absolute left-1/2 transform -translate-x-1/2 h-full w-1 bg-indigo-100"></div>
-                
-                <!-- Step 1 -->
-                <div class="relative md:flex items-center mb-12">
-                    <div class="md:w-1/2 md:pr-12 md:text-right mb-6 md:mb-0">
-                        <h3 class="text-xl font-bold mb-2">Discovery</h3>
-                        <p class="text-gray-600">I start by understanding your business, goals, audience, and challenges to ensure our work aligns with your vision.</p>
-                    </div>
-                    <div class="md:absolute md:left-1/2 md:transform md:-translate-x-1/2 bg-indigo-600 text-white rounded-full w-12 h-12 flex items-center justify-center font-bold text-xl shadow-lg z-10">1</div>
-                    <div class="md:w-1/2 md:pl-12"></div>
+    <!-- Modal 3: Brand Messaging -->
+    <div id="modal3" class="modal">
+        <div class="modal-content modal-blue">
+            <span class="close-modal" onclick="closeModal('modal3')">&times;</span>
+            <div class="modal-header">
+                <div class="modal-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.24 12.24a6 6 0 0 0-8.49-8.49L5 10.5V19h8.5z"></path><line x1="16" y1="8" x2="2" y2="22"></line><line x1="17.5" y1="15" x2="9" y2="15"></line></svg>
                 </div>
+                <h3 class="modal-title">Brand Messaging & Positioning</h3>
+            </div>
+            <div class="modal-body">
+                <p>I help clarify what makes your brand different and create messaging frameworks that ensure consistency across all touchpoints.</p>
                 
-                <!-- Step 2 -->
-                <div class="relative md:flex items-center mb-12">
-                    <div class="md:w-1/2 md:pr-12 md:text-right"></div>
-                    <div class="md:absolute md:left-1/2 md:transform md:-translate-x-1/2 bg-indigo-600 text-white rounded-full w-12 h-12 flex items-center justify-center font-bold text-xl shadow-lg z-10">2</div>
-                    <div class="md:w-1/2 md:pl-12">
-                        <h3 class="text-xl font-bold mb-2">Strategy</h3>
-                        <p class="text-gray-600">I develop a tailored approach based on research and insights to achieve your specific objectives.</p>
+                <h4>Services Include:</h4>
+                <ul>
+                    <li>Brand voice and tone development</li>
+                    <li>Messaging frameworks and guidelines</li>
+                    <li>Value proposition refinement</li>
+                    <li>Brand story development</li>
+                    <li>Competitive positioning strategy</li>
+                </ul>
+                
+                <h4>My Approach:</h4>
+                <div class="approach-steps">
+                    <div class="approach-step" style="border-color: #2563eb;">
+                        <h5>1. Brand Discovery</h5>
+                        <p>Uncovering your unique value through research and stakeholder interviews</p>
                     </div>
-                </div>
-                
-                <!-- Step 3 -->
-                <div class="relative md:flex items-center mb-12">
-                    <div class="md:w-1/2 md:pr-12 md:text-right">
-                        <h3 class="text-xl font-bold mb-2">Creation</h3>
-                        <p class="text-gray-600">I bring the strategy to life through compelling content, designs, and experiences that resonate with your audience.</p>
+                    <div class="approach-step" style="border-color: #2563eb;">
+                        <h5>2. Messaging Development</h5>
+                        <p>Creating key messages tailored to different audience segments</p>
                     </div>
-                    <div class="md:absolute md:left-1/2 md:transform md:-translate-x-1/2 bg-indigo-600 text-white rounded-full w-12 h-12 flex items-center justify-center font-bold text-xl shadow-lg z-10">3</div>
-                    <div class="md:w-1/2 md:pl-12"></div>
-                </div>
-                
-                <!-- Step 4 -->
-                <div class="relative md:flex items-center mb-12">
-                    <div class="md:w-1/2 md:pr-12 md:text-right"></div>
-                    <div class="md:absolute md:left-1/2 md:transform md:-translate-x-1/2 bg-indigo-600 text-white rounded-full w-12 h-12 flex items-center justify-center font-bold text-xl shadow-lg z-10">4</div>
-                    <div class="md:w-1/2 md:pl-12">
-                        <h3 class="text-xl font-bold mb-2">Implementation</h3>
-                        <p class="text-gray-600">I execute the plan with attention to detail, ensuring everything is delivered on time and to specification.</p>
+                    <div class="approach-step" style="border-color: #2563eb;">
+                        <h5>3. Guidance & Support</h5>
+                        <p>Providing tools and training for consistent implementation</p>
                     </div>
                 </div>
-                
-                <!-- Step 5 -->
-                <div class="relative md:flex items-center">
-                    <div class="md:w-1/2 md:pr-12 md:text-right">
-                        <h3 class="text-xl font-bold mb-2">Measurement & Refinement</h3>
-                        <p class="text-gray-600">I track results, gather feedback, and make data-driven improvements to maximize your return on investment.</p>
-                    </div>
-                    <div class="md:absolute md:left-1/2 md:transform md:-translate-x-1/2 bg-indigo-600 text-white rounded-full w-12 h-12 flex items-center justify-center font-bold text-xl shadow-lg z-10">5</div>
-                    <div class="md:w-1/2 md:pl-12"></div>
-                </div>
+            </div>
+            <div class="modal-footer">
+                <a href="https://calendly.com/teslacadena/one-on-one-chat" target="_blank" class="modal-cta">Schedule a Consultation</a>
             </div>
         </div>
     </div>
-</section>
 
-<!-- Testimonials -->
-<section class="py-16 bg-gray-50">
-    <div class="container mx-auto px-4 md:px-8">
-        <div class="text-center mb-16">
-            <h2 class="text-3xl font-bold mb-4">Client Testimonials</h2>
-            <p class="text-gray-600 max-w-2xl mx-auto">Here's what clients have to say about working with me.</p>
-        </div>
-        
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            <!-- Testimonial 1 -->
-            <div class="bg-white p-8 rounded-xl shadow-sm border border-gray-100">
-                <div class="text-yellow-400 flex mb-4">
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
+    <!-- Modal 4: Event Marketing -->
+    <div id="modal4" class="modal">
+        <div class="modal-content modal-pink">
+            <span class="close-modal" onclick="closeModal('modal4')">&times;</span>
+            <div class="modal-header">
+                <div class="modal-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
                 </div>
-                <p class="text-gray-600 italic mb-6">"Tesla is constantly discovering new ways to spread the company vision and collaborates closely with teams to bring it to life. Her attention to detail, critical thinking, and drive make her a powerhouse."</p>
-                <div class="flex items-center">
-                    <div class="w-12 h-12 bg-indigo-100 rounded-full flex items-center justify-center text-indigo-600 font-bold text-xl mr-4">JM</div>
-                    <div>
-                        <h4 class="font-semibold">Jesus Mancillas</h4>
-                        <p class="text-gray-500 text-sm">Colleague at Cybersoft</p>
-                    </div>
-                </div>
+                <h3 class="modal-title">Event Marketing & Coordination</h3>
             </div>
-            
-            <!-- Testimonial 2 -->
-            <div class="bg-white p-8 rounded-xl shadow-sm border border-gray-100">
-                <div class="text-yellow-400 flex mb-4">
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                </div>
-                <p class="text-gray-600 italic mb-6">"It was a pleasure to watch you create magic from afar for the conference you coordinated. Thank you, Tesla, for being the leader that you are. Now everyone knows like I do that nothing gets done without you!"</p>
-                <div class="flex items-center">
-                    <div class="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center text-green-600 font-bold text-xl mr-4">MJ</div>
-                    <div>
-                        <h4 class="font-semibold">Malaika Jenkins</h4>
-                        <p class="text-gray-500 text-sm">Manager at Cybersoft</p>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- Testimonial 3 -->
-            <div class="bg-white p-8 rounded-xl shadow-sm border border-gray-100">
-                <div class="text-yellow-400 flex mb-4">
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                </div>
-                <p class="text-gray-600 italic mb-6">"I've been working with Tesla as a freelance client for over 5 years, and she's been amazing at writing, editing, design, and odd jobs. Tesla always brings her A-game and is super dedicated to getting things done right."</p>
-                <div class="flex items-center">
-                    <div class="w-12 h-12 bg-purple-100 rounded-full flex items-center justify-center text-purple-600 font-bold text-xl mr-4">GW</div>
-                    <div>
-                        <h4 class="font-semibold">Glenda Walltower</h4>
-                        <p class="text-gray-500 text-sm">Freelance Client</p>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- Testimonial 4 -->
-            <div class="bg-white p-8 rounded-xl shadow-sm border border-gray-100">
-                <div class="text-yellow-400 flex mb-4">
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                </div>
-                <p class="text-gray-600 italic mb-6">"At SNIC24, our own Tesla Cadena led a presentation, 'From Cafeteria to Community: Innovative Ways to Feed More Kids.' She did a fantastic job speaking to a packed house and answering questions. Wonderful job, Tesla!"</p>
-                <div class="flex items-center">
-                    <div class="w-12 h-12 bg-pink-100 rounded-full flex items-center justify-center text-pink-600 font-bold text-xl mr-4">MP</div>
-                    <div>
-                        <h4 class="font-semibold">Molly Platts</h4>
-                        <p class="text-gray-500 text-sm">Colleague at Cybersoft</p>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- Testimonial 5 -->
-            <div class="bg-white p-8 rounded-xl shadow-sm border border-gray-100">
-                <div class="text-yellow-400 flex mb-4">
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                </div>
-                <p class="text-gray-600 italic mb-6">"Can we give Tesla Cadena a hand in keeping us organized and making sure all the details are covered for the Pennsylvania User Group Meeting? Very professional."</p>
-                <div class="flex items-center">
-                    <div class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center text-blue-600 font-bold text-xl mr-4">DT</div>
-                    <div>
-                        <h4 class="font-semibold">Daniel Todd</h4>
-                        <p class="text-gray-500 text-sm">Colleague at Cybersoft</p>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- Testimonial 6 -->
-            <div class="bg-white p-8 rounded-xl shadow-sm border border-gray-100">
-                <div class="text-yellow-400 flex mb-4">
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                </div>
-                <p class="text-gray-600 italic mb-6">"Working with Tesla over the past three years has been a privilege. Her leadership in marketing, data-driven decision-making, and passion for continuous learning have made a significant impact on our team."</p>
-                <div class="flex items-center">
-                    <div class="w-12 h-12 bg-yellow-100 rounded-full flex items-center justify-center text-yellow-600 font-bold text-xl mr-4">CM</div>
-                    <div>
-                        <h4 class="font-semibold">Christina Mammen</h4>
-                        <p class="text-gray-500 text-sm">Colleague at Cybersoft</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- Footer -->
-<footer class="bg-gray-900 text-white py-12">
-    <div class="container mx-auto px-4 md:px-8">
-        <div class="flex flex-col md:flex-row justify-between items-center">
-            <div class="mb-6 md:mb-0">
-                <a href="#" class="text-2xl font-bold">Your Name</a>
-                <p class="text-gray-400 mt-2">Communication Strategist & Content Creator</p>
-            </div>
-        </div>
-        
-        <div class="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400 text-sm">
-            <p>&copy; 2023 Your Name. All rights reserved.</p>
-        </div>
-    </div>
-</footer>
-
-<script>
-    // Tab functionality
-    document.addEventListener('DOMContentLoaded', function() {
-        const tabButtons = document.querySelectorAll('.tab-button');
-        const tabContents = document.querySelectorAll('.tab-content');
-        
-        tabButtons.forEach(button => {
-            button.addEventListener('click', () => {
-                // Remove active class from all buttons and contents
-                tabButtons.forEach(btn => btn.classList.remove('active'));
-                tabContents.forEach(content => content.classList.remove('active'));
+            <div class="modal-body">
+                <p>I design experiences that build community and elevate your brand, handling everything from promotion to logistics and storytelling.</p>
                 
-                // Add active class to clicked button and corresponding content
-                button.classList.add('active');
-                const tabId = button.getAttribute('data-tab');
-                document.getElementById(tabId).classList.add('active');
+                <h4>Services Include:</h4>
+                <ul>
+                    <li>In-person and virtual event planning</li>
+                    <li>Event promotion and audience building</li>
+                    <li>Speaker coordination and content</li>
+                    <li>Event branding and materials</li>
+                    <li>Post-event engagement campaigns</li>
+                </ul>
+                
+                <h4>My Approach:</h4>
+                <div class="approach-steps">
+                    <div class="approach-step" style="border-color: #db2777;">
+                        <h5>1. Event Strategy</h5>
+                        <p>Defining clear goals and developing a format for maximum impact</p>
+                    </div>
+                    <div class="approach-step" style="border-color: #db2777;">
+                        <h5>2. Execution & Management</h5>
+                        <p>Handling logistics, coordination, and day-of troubleshooting</p>
+                    </div>
+                    <div class="approach-step" style="border-color: #db2777;">
+                        <h5>3. Promotion & Follow-up</h5>
+                        <p>Marketing your event and nurturing connections afterward</p>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <a href="https://calendly.com/teslacadena/one-on-one-chat" target="_blank" class="modal-cta">Schedule a Consultation</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal 5: Campaign Planning -->
+    <div id="modal5" class="modal">
+        <div class="modal-content modal-green">
+            <span class="close-modal" onclick="closeModal('modal5')">&times;</span>
+            <div class="modal-header">
+                <div class="modal-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline></svg>
+                </div>
+                <h3 class="modal-title">Campaign Planning & Execution</h3>
+            </div>
+            <div class="modal-body">
+                <p>I create multi-channel campaigns that deliver measurable results across email, landing pages, social media, and more.</p>
+                
+                <h4>Services Include:</h4>
+                <ul>
+                    <li>Integrated marketing campaigns</li>
+                    <li>Product and service launches</li>
+                    <li>Lead generation initiatives</li>
+                    <li>Content marketing programs</li>
+                    <li>Performance tracking and optimization</li>
+                </ul>
+                
+                <h4>My Approach:</h4>
+                <div class="approach-steps">
+                    <div class="approach-step" style="border-color: #10b981;">
+                        <h5>1. Campaign Strategy</h5>
+                        <p>Setting clear objectives and selecting the right channels</p>
+                    </div>
+                    <div class="approach-step" style="border-color: #10b981;">
+                        <h5>2. Content Development</h5>
+                        <p>Creating compelling assets tailored to each platform</p>
+                    </div>
+                    <div class="approach-step" style="border-color: #10b981;">
+                        <h5>3. Measurement & Optimization</h5>
+                        <p>Using data to refine and improve campaign performance</p>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <a href="https://calendly.com/teslacadena/one-on-one-chat" target="_blank" class="modal-cta">Schedule a Consultation</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- JavaScript -->
+    <script>
+        // Modal functionality
+        function openModal(modalId) {
+            const modal = document.getElementById(modalId);
+            modal.style.display = "block";
+            setTimeout(() => {
+                modal.classList.add('show');
+            }, 10);
+            document.body.style.overflow = 'hidden';
+        }
+        
+        function closeModal(modalId) {
+            const modal = document.getElementById(modalId);
+            modal.classList.remove('show');
+            setTimeout(() => {
+                modal.style.display = "none";
+                document.body.style.overflow = 'auto';
+            }, 300);
+        }
+        
+        // Close modal when clicking outside
+        window.onclick = function(event) {
+            const modals = document.getElementsByClassName('modal');
+            for (let i = 0; i < modals.length; i++) {
+                if (event.target == modals[i]) {
+                    closeModal(modals[i].id);
+                }
+            }
+        }
+        
+        // Mobile menu toggle
+        document.getElementById('mobileMenuBtn').addEventListener('click', function() {
+            document.getElementById('navMenu').classList.toggle('show');
+        });
+        
+        // Back to top button
+        const backToTopButton = document.getElementById('backToTop');
+        
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300) {
+                backToTopButton.classList.add('visible');
+            } else {
+                backToTopButton.classList.remove('visible');
+            }
+        });
+        
+        backToTopButton.addEventListener('click', (e) => {
+            e.preventDefault();
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
             });
         });
-    });
-</script>
+        
+        // Add animation on scroll effect
+        document.addEventListener('DOMContentLoaded', function() {
+            const elements = document.querySelectorAll('[data-aos]');
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, {
+                threshold: 0.1
+            });
+            
+            elements.forEach(element => {
+                element.style.opacity = '0';
+                element.style.transform = 'translateY(20px)';
+                observer.observe(element);
+            });
+        });
+        
+        // Escape key closes modals
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                const modals = document.getElementsByClassName('modal');
+                for (let i = 0; i < modals.length; i++) {
+                    if (modals[i].style.display === 'block') {
+                        closeModal(modals[i].id);
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+</html>
