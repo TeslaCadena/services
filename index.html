@@ -1,43 +1,69 @@
 <!-- Font Awesome for icons -->
-<!-- Include TailwindCSS -->
 <script src="https://cdn.tailwindcss.com"></script>
-<!-- Include FontAwesome -->
+<!-- FontAwesome -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
 <!-- Inline Styling -->
 <style>
   @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
   body {
     font-family: 'Poppins', sans-serif;
     background-color: #f9f9fc;
   }
+
   .service-card {
     transition: all 0.3s ease;
     box-shadow: 0 4px 24px 0 rgba(89, 75, 229, 0.10);
   }
+
   .service-card:hover {
     transform: translateY(-5px) scale(1.03);
-    box-shadow: 0 8px 32px 0 rgba(89, 75, 229, 0.18);
   }
-  
+
   .service-icon {
     transition: all 0.3s ease;
   }
+
   .service-card:hover .service-icon {
     transform: scale(1.1);
+  }
+
+  /* Hover shadows based on data-color */
+  .service-card[data-color="indigo"]:hover {
+    box-shadow: 0 8px 32px 0 rgba(99, 102, 241, 0.10); /* indigo-500 */
+  }
+
+  .service-card[data-color="purple"]:hover {
+    box-shadow: 0 8px 32px 0 rgba(139, 92, 246, 0.10); /* purple-500 */
+  }
+
+  .service-card[data-color="blue"]:hover {
+    box-shadow: 0 8px 32px 0 rgba(59, 130, 246, 0.10); /* blue-500 */
+  }
+
+  .service-card[data-color="pink"]:hover {
+    box-shadow: 0 8px 32px 0 rgba(236, 72, 153, 0.10); /* pink-500 */
+  }
+
+  .service-card[data-color="green"]:hover {
+    box-shadow: 0 8px 32px 0 rgba(16, 185, 129, 0.10); /* green-500 */
   }
 </style>
 
 <!-- SERVICES SECTION -->
-
 <section class="py-16" style="background-color: #f9f9fc;">
   <div class="container mx-auto px-4 md:px-4">
     <div class="text-center mb-10">
-      <h2 class="text-3xl font-bold mb-8">  How I Can <span style="color: #594be5;">Help You</span>
+<h2 class="text-3xl font-bold mb-8">
+  How I Can <span class="bg-clip-text text-transparent bg-gradient-to-r from-indigo-500 to-purple-500 animate-gradient-x">Help You</span>
+</h2>
+
     </div>
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+
       <!-- Service Cards -->
-<div class="service-card bg-white rounded-xl p-8 border border-gray-100">
+      <div class="service-card bg-white rounded-xl p-8 border border-gray-100" data-color="indigo">
         <div class="service-icon bg-indigo-100 text-indigo-600 w-16 h-16 rounded-full flex items-center justify-center mb-6">
           <i class="fas fa-pen-fancy text-2xl"></i>
         </div>
@@ -45,7 +71,7 @@
         <p class="text-gray-600 mb-4">Transform ideas into clear, persuasive content that reflects your voice and drives action.</p>
       </div>
 
-<div class="service-card bg-white rounded-xl p-8 border border-gray-100">
+      <div class="service-card bg-white rounded-xl p-8 border border-gray-100" data-color="purple">
         <div class="service-icon bg-purple-100 text-purple-600 w-16 h-16 rounded-full flex items-center justify-center mb-6">
           <i class="fab fa-instagram text-2xl"></i>
         </div>
@@ -53,7 +79,7 @@
         <p class="text-gray-600 mb-4">Create scroll-stopping posts that keep your brand relevant, visible, and engaging.</p>
       </div>
 
-<div class="service-card bg-white rounded-xl p-8 border border-gray-100">
+      <div class="service-card bg-white rounded-xl p-8 border border-gray-100" data-color="blue">
         <div class="service-icon bg-blue-100 text-blue-600 w-16 h-16 rounded-full flex items-center justify-center mb-6">
           <i class="fas fa-bullhorn text-2xl"></i>
         </div>
@@ -61,7 +87,7 @@
         <p class="text-gray-600 mb-4">A messaging toolkit that sets you apart and converts across platforms and audiences.</p>
       </div>
 
-<div class="service-card bg-white rounded-xl p-8 border border-gray-100">
+      <div class="service-card bg-white rounded-xl p-8 border border-gray-100" data-color="pink">
         <div class="service-icon bg-pink-100 text-pink-600 w-16 h-16 rounded-full flex items-center justify-center mb-6">
           <i class="fas fa-calendar-check text-2xl"></i>
         </div>
@@ -69,7 +95,7 @@
         <p class="text-gray-600 mb-4">Turn moments into momentum with events that capture attention and spark connections.</p>
       </div>
 
-<div class="service-card bg-white rounded-xl p-8 border border-gray-100">
+      <div class="service-card bg-white rounded-xl p-8 border border-gray-100" data-color="green">
         <div class="service-icon bg-green-100 text-green-600 w-16 h-16 rounded-full flex items-center justify-center mb-6">
           <i class="fas fa-chart-line text-2xl"></i>
         </div>
@@ -77,6 +103,7 @@
         <p class="text-gray-600 mb-4">Seamless campaigns that blend storytelling, strategy, and results in every touchpoint.</p>
       </div>
 
+      <!-- Final Gradient Card (No hover color match needed) -->
       <div class="service-card bg-gradient-to-br from-indigo-600 to-purple-600 rounded-xl p-8 text-white">
         <div class="service-icon bg-white bg-opacity-20 w-16 h-16 rounded-full flex items-center justify-center mb-6">
           <i class="fas fa-comments text-2xl"></i>
@@ -84,7 +111,8 @@
         <h3 class="text-xl font-bold mb-3">Need Something Else?</h3>
         <p class="text-white text-opacity-90 mb-4">Let's discuss how I can meet your unique needs.</p>
         <a href="https://calendly.com/teslacadena/one-on-one-chat" target="_blank" class="inline-block bg-white text-indigo-600 font-medium px-6 py-3 rounded-lg hover:bg-opacity-90 transition-all">Get In Touch</a>
-        
       </div>
+
     </div>
   </div>
+</section>
